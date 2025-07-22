@@ -1,0 +1,20 @@
+---
+import Navbar from "../components/Navbar.astro";
+import '../styles/tailwind.css';
+import Footer from '../components/Footer.astro';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Killian</title>
+  </head>
+  <body class="bg-slate text-charcoal">
+    <Navbar />
+    <main class="min-h-screen px-4 sm:px-6 lg:px-8 py-8 animate-fadeIn">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

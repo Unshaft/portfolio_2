@@ -1,0 +1,17 @@
+---
+import { getCollection } from 'astro:content';
+
+const projects = await getCollection('projects');
+---
+
+<h1 class="text-2xl font-bold mb-6">🧪 Liste des fichiers de projets</h1>
+
+<ul class="space-y-4">
+  {projects.map((p) => (
+    <li class="p-4 border rounded bg-white shadow">
+      <p><strong>Slug :</strong> {p.slug}</p>
+      <p><strong>Locale :</strong> {p.data.locale ?? '❌ manquant'}</p>
+      <p><strong>Titre :</strong> {p.data.title}</p>
+    </li>
+  ))}
+</ul>

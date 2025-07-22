@@ -1,0 +1,55 @@
+---
+const pathname = Astro.url.pathname;
+const currentLang = pathname.startsWith('/en') ? 'en' : 'fr';
+const altLang = currentLang === 'en' ? 'fr' : 'en';
+
+const navLinks = [
+  { label: currentLang === 'en' ? 'Home' : 'Accueil', href: `/${currentLang}/` },
+  { label: currentLang === 'en' ? 'Projects' : 'Projets', href: '/${currentLang}/projects' },
+  { label: currentLang === 'en' ? 'About' : 'À propos', href: '/${currentLang}/about' },
+  { label: 'CV', href: `/${currentLang}/cv` },
+  { label: currentLang === 'en' ? 'Contact' : 'Contact', href: '/${currentLang}/contact' },
+];
+---
+
+<nav class="w-full bg-white border-b border-gray-200 px-6 py-4 shadow-md">
+  <div class="max-w-7xl mx-auto flex items-center justify-between">
+    <!-- Logo -->
+    <a href={`/${currentLang}/`} class="logo hover:tracking-wide transition-all duration-300">
+      <span class="text-blue-600">Killian</span><span class="text-gray-800">.dev</span>
+    </a>
+
+    <!-- Desktop menu -->
+    <div class="hidden md:flex items-center space-x-6 font-medium">
+      {navLinks.map(link => (
+        <a href={link.href} class="nav-link">{link.label}</a>
+      ))}
+
+      <!-- Langue -->
+      <a href={`/${altLang}${pathname.replace(/^\/(fr|en)/, '')}`} class="lang-switch">
+        {altLang === 'en' ? '🫖 EN' : '🥖 FR'}
+      </a>
+    </div>
+
+    <!-- Burger (mobile only) -->
+    <button
+      class="md:hidden flex items-center text-gray-600 focus:outline-none"
+      onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+        viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="md:hidden hidden mt-4 px-4 space-y-2">
+    {navLinks.map(link => (
+      <a href={link.href} class="block text-gray-700 hover:text-blue-600 transition">{link.label}</a>
+    ))}
+    <a href={`/${altLang}${pathname.replace(/^\/(fr|en)/, '')}`} class="block text-sm text-gray-500 hover:text-blue-600">
+      {altLang === 'en' ? '🫖 English' : '🥖 Français'}
+    </a>
+  </div>
+</nav>

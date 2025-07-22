@@ -1,0 +1,18 @@
+---
+import { getCollection } from 'astro:content';
+import ProjectCard from '../components/ProjectCard.astro';
+
+const projects = await getCollection('projects');
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+
+<BaseLayout>
+  <h1 class="text-5xl font-bold text-charcoal mb-4">Mes projets</h1>
+  <div>
+    {projects.map(project => (
+      <ProjectCard project={project.data} />
+    ))}
+  </div>
+</BaseLayout>
