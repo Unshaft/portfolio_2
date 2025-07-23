@@ -20,7 +20,9 @@ export default {
         ...colors,
         charcoal: '#264653',
         gold: '#B48E00',
+        oldgold: '#A07300',
         slate: '#E0E1E4',
+        slate_harder: '#e0e1e4af',
       },
       scrollBehavior: {
         smooth: 'smooth',

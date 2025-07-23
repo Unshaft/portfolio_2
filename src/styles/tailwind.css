@@ -101,3 +101,12 @@
     @apply text-gold hover:text-yellow-600;
   }
 }
+@layer components {
+  .btn-primary {
+    @apply bg-charcoal text-slate_harder font-semibold px-4 py-2 rounded hover:bg-gold transition-colors;
+  }
+  .btn-icon {
+  @apply flex items-center gap-2;
+}
+
+}

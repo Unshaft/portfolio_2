@@ -1,15 +1,19 @@
 ---
-// Footer simple et stylé
 const currentYear = new Date().getFullYear();
+const url = new URL(Astro.request.url);
+const pathname = url.pathname;
+const currentLang = pathname.startsWith('/en') ? 'en' : 'fr';
+const altLang = currentLang === 'en' ? 'fr' : 'en';
+const contactLink = `/${currentLang}/contact`;
 ---
 
 <footer class="bg-charcoal text-slate text-sm mt-16">
   <div class="max-w-7xl mx-auto px-4 py-8 flex flex-col sm:flex-row justify-between items-center gap-4">
     <p class="text-center sm:text-left">&copy; {currentYear} Killian — All rights reserved.</p>
 
-    <div class="flex gap-4">
+    <div class="flex flex-wrap justify-center sm:justify-end gap-4">
       <a
-        href="https://github.com/ton-github"
+        href="https://github.com/Unshaft"
         class="hover:text-gold transition-colors"
         target="_blank"
         rel="noopener noreferrer"
@@ -17,7 +21,21 @@ const currentYear = new Date().getFullYear();
         GitHub
       </a>
       <a
-        href="contact"
+        href="https://www.linkedin.com/in/killian-perzo-24085417a"
+        class="hover:text-gold transition-colors"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        LinkedIn
+      </a>
+      <a
+        href="mailto:killian.perzo@gmail.com"
+        class="hover:text-gold transition-colors"
+      >
+        Email
+      </a>
+      <a
+        href={contactLink}
         class="hover:text-gold transition-colors"
       >
         Contact

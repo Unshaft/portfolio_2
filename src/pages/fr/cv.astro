@@ -1,0 +1,110 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const cvUrl = '/files/CV_Killian_PERZO_2024.pdf';
+---
+
+<BaseLayout title="CV | Killian Perzo">
+  <section class="max-w-5xl mx-auto px-4 py-12 prose">
+    <h1 class="text-4xl mb-4 text-gold">Curriculum Vitae</h1>
+
+    <p class="mb-6 text-lg">
+      Data Analyst en alternance chez Median Technologies, je poursuis un Master of Science in Data Analytics à la DSTI.
+      Mon parcours mêle sciences du sport, ingénierie de la donnée et projets d’analyse appliquée. Je recherche un poste hybride mêlant visualisation, exploration et structuration des données.
+    </p>
+
+    <!-- Expériences -->
+    <div class="grid sm:grid-cols-2 gap-10 mb-12">
+      <div>
+        <h2 class="text-2xl text-oldgold mb-4">Expérience professionnelle</h2>
+        <ul class="space-y-4">
+          <li>
+            <strong>Data Analyst – Median Technologies</strong><br />
+            <em>Alternance | Sep. 2024 – Déc. 2025</em><br />
+            Prédiction d’événements cliniques · Analyse de données DICOM · Modélisation ML
+          </li>
+          <li>
+            <strong>Data Analyst – Monext</strong><br />
+            <em>Janv. 2022 – Août 2022</em><br />
+            Dashboard client · KPI · Formateur AWS Quicksight
+          </li>
+          <li>
+            <strong>Animateur TMS – Moovency</strong><br />
+            Ateliers prévention TMS (Lidl France) · Intervention terrain
+          </li>
+          <li>
+            <strong>Équipier – McDonald’s</strong><br />
+            Gestion du stress · Travail d'équipe · Relationnel client
+          </li>
+          <li>
+            <strong>Animateur – Wakanga</strong><br />
+            Communication, transmission & créativité en colonie
+          </li>
+        </ul>
+      </div>
+
+      <!-- Formation -->
+      <div>
+        <h2 class="text-2xl text-oldgold mb-4">Formation</h2>
+        <ul class="space-y-4">
+          <li>
+            <strong>DSTI</strong> — MSc in Data Analytics<br />
+            <em>2024 – 2025</em><br />
+            Data management, visualisation, IA appliquée
+          </li>
+          <li>
+            <strong>IUT Vannes</strong> — BUT Sciences des données<br />
+            <em>2022 – 2024</em><br />
+            Statistique, machine learning, NoSQL, modélisation
+          </li>
+          <li>
+            <strong>Université Rennes 2</strong> — Licence STAPS<br />
+            <em>2018 – 2022</em><br />
+            Ergonomie du sport, analyse motrice
+          </li>
+          <li>
+            <strong>Lycée Frédéric Ozanam</strong> — Bac S SI<br />
+            <em>2015 – 2018</em><br />
+            Option info · Erasmus Cesson-Sévigné
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Compétences -->
+    <div class="grid sm:grid-cols-2 gap-10 mb-12">
+      <div>
+        <h2 class="text-2xl text-oldgold mb-4">Compétences techniques</h2>
+        <ul class="columns-2 text-sm marker:text-gold">
+          <li>Python</li><li>R</li><li>SQL</li><li>NoSQL</li>
+          <li>MongoDB</li><li>HTML/CSS</li><li>Excel</li><li>Power BI</li>
+          <li>AWS Quicksight</li><li>Dataiku</li><li>Google Analytics</li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="text-2xl text-oldgold mb-4">Langues & Certifications</h2>
+        <ul class="text-sm list-disc list-inside marker:text-gold">
+          <li>Anglais : B2/C1 – Italien : A2</li>
+          <li>BAFA – Neo4j Certified</li>
+          <li>SAS V.B.A. Specialist – Power BI (à venir)</li>
+          <li>Microsoft Office Specialist (à venir)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Boutons -->
+    <div class="mb-4 flex flex-wrap gap-4 items-center">
+      <a
+        href={cvUrl}
+        download
+        class="btn-primary">
+        Télécharger le CV (PDF)
+    </a>
+
+      <a href="mailto:killian.perzo@gmail.com" class="hover:underline">killian.perzo@gmail.com</a>
+      <a href="https://www.linkedin.com/in/killian-perzo-24085417a" class="hover:underline" target="_blank">
+        LinkedIn
+      </a>
+    </div>
+  </section>
+</BaseLayout>
