@@ -1,0 +1,33 @@
+---
+import { getCollection } from 'astro:content';
+import ProjectCard from '../../components/ProjectCard.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const lang = 'en';
+
+const projects = (await getCollection('projects')).filter(
+  (project) => project.data.locale === lang && !!project.slug
+);
+
+console.log(`📦 [${lang.toUpperCase()}] Projects shown on /${lang}/projects:`);
+projects.forEach((p) => {
+  console.log(`— ${p.data.title} → /${lang}/projects/${p.slug}`);
+});
+
+
+
+---
+
+<BaseLayout>
+  <h1 class="text-5xl font-bold text-charcoal mb-8">My Projects</h1>
+
+
+
+  <div class="grid md:grid-cols-2 gap-6">
+    {projects.map((project) => (
+      <a href={`/${lang}/projects/${project.slug}`} class="block group">
+        <ProjectCard project={project.data} />
+      </a>
+    ))}
+  </div>
+</BaseLayout>

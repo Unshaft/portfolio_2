@@ -1,23 +1,27 @@
 ---
-title: "Badminton Shot Classifier"
-slug: "badminton-ml"
-local : "fr"
-description: "A machine learning model to recognize badminton shots from annotated match videos. Coming soon."
-stack: ["Python", "scikit-learn", "OpenCV", "MediaPipe", "Pandas","Perso"]
+title: "Classificateur de coups au badminton"
+slug: "badminton-ml_fr"
+locale: "fr"
+description: "Un modèle de machine learning pour reconnaître les coups au badminton à partir de vidéos annotées."
+stack: ["Python", "scikit-learn", "OpenCV", "MediaPipe", "Pandas"]
 image: "/img/cbn.png"
 github: "" # Tu peux compléter plus tard
-tag: ["Coming soon"]
-
-
+tag: ["Bientôt disponible"]
+translationOf: "badminton-ml"
+category : "perso"
+startDate : "2024-10-01"
+endDate : ""
+updatedDate : "2025-06-25"
 ---
-This project is part of **DataBad**, my personal initiative to analyze badminton matches in detail.
 
-The goal is to automatically classify each shot (clear, smash, net, drop...) using video data and structured annotations. It combines:
+Ce projet fait partie de **DataBad**, mon initiative personnelle pour analyser en détail les matchs de badminton.
 
-- Pose estimation with **MediaPipe**
-- Shot labeling and segmentation
-- Frame-by-frame analysis with **OpenCV**
-- Training datasets from personal matches
-- Initial experiments with SVM and Random Forest
+L’objectif est de classifier automatiquement chaque coup (dégagement, smash, amorti...) à partir des données vidéo et d’annotations structurées. Il combine :
 
-> The project is currently under development and will be progressively integrated into the DataBad ecosystem.
+- L’estimation de pose avec **MediaPipe**
+- L’étiquetage et la segmentation des coups
+- L’analyse image par image avec **OpenCV**
+- Des jeux de données issus de mes propres matchs
+- Des premiers tests avec SVM et Random Forest
+
+> Le projet est encore en développement et sera intégré progressivement à l’écosystème DataBad.

@@ -1,16 +1,19 @@
 ---
-const pathname = Astro.url.pathname;
+const url = new URL(Astro.request.url);
+const pathname = url.pathname;
+
 const currentLang = pathname.startsWith('/en') ? 'en' : 'fr';
 const altLang = currentLang === 'en' ? 'fr' : 'en';
 
 const navLinks = [
   { label: currentLang === 'en' ? 'Home' : 'Accueil', href: `/${currentLang}/` },
-  { label: currentLang === 'en' ? 'Projects' : 'Projets', href: '/${currentLang}/projects' },
-  { label: currentLang === 'en' ? 'About' : 'À propos', href: '/${currentLang}/about' },
+  { label: currentLang === 'en' ? 'Projects' : 'Projets', href: `/${currentLang}/projects` },
+  { label: currentLang === 'en' ? 'About' : 'À propos', href: `/${currentLang}/about` },
   { label: 'CV', href: `/${currentLang}/cv` },
-  { label: currentLang === 'en' ? 'Contact' : 'Contact', href: '/${currentLang}/contact' },
+  { label: currentLang === 'en' ? 'Contact' : 'Contact', href: `/${currentLang}/contact` },
 ];
 ---
+
 
 <nav class="w-full bg-white border-b border-gray-200 px-6 py-4 shadow-md">
   <div class="max-w-7xl mx-auto flex items-center justify-between">
@@ -26,9 +29,20 @@ const navLinks = [
       ))}
 
       <!-- Langue -->
-      <a href={`/${altLang}${pathname.replace(/^\/(fr|en)/, '')}`} class="lang-switch">
+      <a id="lang-switch" href="#" class="lang-switch">
         {altLang === 'en' ? '🫖 EN' : '🥖 FR'}
       </a>
+      <script type="module">
+        import { setupLangSwitch } from '/src/scripts/lang-switch.js';
+        window.addEventListener('DOMContentLoaded', () => {
+          setupLangSwitch('lang-switch');
+        });
+      </script>
+
+      
+
+
+
     </div>
 
     <!-- Burger (mobile only) -->

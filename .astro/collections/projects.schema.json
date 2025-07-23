@@ -7,7 +7,17 @@
         "title": {
           "type": "string"
         },
+        "locale": {
+          "type": "string",
+          "enum": [
+            "fr",
+            "en"
+          ]
+        },
         "description": {
+          "type": "string"
+        },
+        "slug": {
           "type": "string"
         },
         "image": {
@@ -28,13 +38,35 @@
             "type": "string"
           }
         },
+        "translationOf": {
+          "type": "string"
+        },
+        "startDate": {
+          "type": "string"
+        },
+        "endDate": {
+          "type": "string"
+        },
+        "updatedDate": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string",
+          "enum": [
+            "pro",
+            "perso",
+            "study"
+          ]
+        },
         "$schema": {
           "type": "string"
         }
       },
       "required": [
         "title",
-        "description"
+        "locale",
+        "description",
+        "translationOf"
       ],
       "additionalProperties": false
     }

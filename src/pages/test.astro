@@ -1,17 +1,70 @@
 ---
 import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
-const projects = await getCollection('projects');
+const allProjects = await getCollection('projects');
+
+// Séparer les projets par langue
+const projectsFr = allProjects.filter(p => p.data.locale === 'fr');
+const projectsEn = allProjects.filter(p => p.data.locale === 'en');
 ---
 
-<h1 class="text-2xl font-bold mb-6">🧪 Liste des fichiers de projets</h1>
+<BaseLayout>
+  <section class="max-w-5xl mx-auto py-12">
+    <h1 class="text-3xl font-bold mb-8">🧪 Projets par langue</h1>
+<h2 class="text-xl font-semibold mt-12">🔍 Données brutes</h2>
+<pre class="bg-white p-4 rounded border max-h-[400px] overflow-auto text-xs">
+{JSON.stringify(allProjects.map(p => ({
+  slug: p.slug,
+  locale: p.data.locale,
+  title: p.data.title
+})), null, 2)}
+</pre>
+    <h2 class="text-2xl font-semibold mb-4">🇫🇷 Projets français</h2>
+    <table class="table-auto border-collapse w-full text-left text-sm mb-12">
+      <thead>
+        <tr class="bg-gray-100">
+          <th class="border px-4 py-2">Slug</th>
+          <th class="border px-4 py-2">Titre</th>
+        </tr>
+      </thead>
+      <tbody>
+        {projectsFr.map((project) => (
+          <tr class="hover:bg-gray-50">
+            <td class="border px-4 py-2">{project.slug}</td>
+            <td class="border px-4 py-2">
+              <a href={`/fr/projects/${project.slug}`} class="text-blue-600 hover:underline">
+                {project.data.title}
+              </a>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
 
-<ul class="space-y-4">
-  {projects.map((p) => (
-    <li class="p-4 border rounded bg-white shadow">
-      <p><strong>Slug :</strong> {p.slug}</p>
-      <p><strong>Locale :</strong> {p.data.locale ?? '❌ manquant'}</p>
-      <p><strong>Titre :</strong> {p.data.title}</p>
-    </li>
-  ))}
-</ul>
+    <h2 class="text-2xl font-semibold mb-4">🇬🇧 English Projects</h2>
+    <table class="table-auto border-collapse w-full text-left text-sm">
+      <thead>
+        <tr class="bg-gray-100">
+          <th class="border px-4 py-2">Slug</th>
+          <th class="border px-4 py-2">Title</th>
+        </tr>
+      </thead>
+      <tbody>
+        {projectsEn.map((project) => (
+          <tr class="hover:bg-gray-50">
+            <td class="border px-4 py-2">{project.slug}</td>
+            <td class="border px-4 py-2">
+              <a href={`/en/projects/${project.slug}`} class="text-blue-600 hover:underline">
+                {project.data.title}
+              </a>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </section>
+
+
+
+</BaseLayout>
