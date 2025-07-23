@@ -1,0 +1,30 @@
+---
+import Navbar from "../components/Navbar.astro";
+import '../styles/tailwind.css';
+import Footer from '../components/Footer.astro';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Killian</title>
+  </head>
+    <body class="bg-slate text-charcoal flex flex-col h-screen overflow-hidden">
+      <Navbar />
+      
+      <main class="flex-1 flex justify-center items-center overflow-hidden">
+        <div id="scroll-frame" class="w-full max-w-5xl h-full overflow-y-auto snap-y snap-mandatory scroll-smooth scrollbar-hide rounded-xl border bg-white shadow-lg">
+          <slot />
+        </div>
+      </main>
+      <Footer />
+    </body>
+
+</html>
+
+<script type="module">
+  import Alpine from 'alpinejs'
+  window.Alpine = Alpine
+  Alpine.start()
+</script>

@@ -1,0 +1,40 @@
+---
+const skills = [
+  { name: 'Python', logo: '/img/logo/python.png' },
+  { name: 'Streamlit', logo: '/img/logo/streamlit.png' },
+  { name: 'Git', logo: '/img/logo/git.png' },
+  { name: 'MongoDB', logo: '/img/logo/mongoDB.png' },
+  { name: 'Astro', logo: '/img/logo/astro.png' },
+];
+---
+
+<!-- Splide CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/css/splide.min.css" />
+
+<div class="splide" id="skills-carousel" aria-label="Compétences clés">
+  <div class="splide__track">
+    <ul class="splide__list">
+      {skills.map((skill) => (
+        <li class="splide__slide flex flex-col items-center justify-center p-4">
+          <img src={skill.logo} alt={skill.name + ' logo'} class="h-12 mb-2" />
+          <span class="text-sm text-charcoal font-medium">{skill.name}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</div>
+
+<!-- Splide JS -->
+<script type="module">
+  import Splide from '@splidejs/splide';
+  new Splide('#skills-carousel', {
+    type: 'loop',
+    perPage: 3,
+    gap: '1.5rem',
+    autoplay: true,
+    breakpoints: {
+      768: { perPage: 2 },
+      480: { perPage: 1 },
+    },
+  }).mount();
+</script>

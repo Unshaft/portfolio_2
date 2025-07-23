@@ -83,3 +83,21 @@
     @apply text-xl font-bold text-blue-600 hover:tracking-wide transition-all duration-300;
   }
 }
+.card-image-fade {
+  @apply absolute inset-0 bg-no-repeat bg-contain bg-right opacity-10 pointer-events-none;
+}
+
+
+@layer components {
+  .splide__slide {
+    @apply rounded-xl overflow-hidden shadow-md bg-white;
+  }
+
+  .splide__pagination__page.is-active {
+    @apply bg-gold;
+  }
+
+  .splide__arrow {
+    @apply text-gold hover:text-yellow-600;
+  }
+}

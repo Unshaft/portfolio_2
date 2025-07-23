@@ -22,7 +22,13 @@ export default {
         gold: '#B48E00',
         slate: '#E0E1E4',
       },
+      scrollBehavior: {
+        smooth: 'smooth',
+      },
     },
   },
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [
+  require('@tailwindcss/typography'),
+  require('tailwind-scrollbar-hide'),
+],
 };

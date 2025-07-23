@@ -9,11 +9,19 @@
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.1",
+    "@astrojs/react": "^4.3.0",
     "@astrojs/tailwind": "^6.0.2",
+    "@splidejs/splide": "^4.1.4",
     "@tailwindcss/typography": "^0.5.16",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
     "alpinejs": "^3.14.9",
+    "aos": "^2.3.4",
     "astro": "^5.12.1",
-    "tailwind": "^4.0.0"
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "tailwind": "^4.0.0",
+    "tailwind-scrollbar-hide": "^4.0.0"
   },
   "devDependencies": {
     "@types/estree": "^1.0.8",

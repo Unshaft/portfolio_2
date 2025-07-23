@@ -1,26 +1,29 @@
 ---
 import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
 import '../styles/tailwind.css';
-import Footer from '../components/Footer.astro';
 ---
 
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio Killian</title>
   </head>
-  <body class="bg-slate text-charcoal">
+
+  <body class="bg-slate text-charcoal flex flex-col min-h-screen">
     <Navbar />
-    <main class="min-h-screen px-4 sm:px-6 lg:px-8 py-8 animate-fadeIn">
+
+    <main class="flex-1 w-full max-w-6xl mx-auto px-4 py-12">
       <slot />
     </main>
+
     <Footer />
+
+    <script type="module">
+      import Alpine from 'alpinejs';
+      window.Alpine = Alpine;
+      Alpine.start();
+    </script>
   </body>
 </html>
-
-<script type="module">
-  import Alpine from 'alpinejs'
-  window.Alpine = Alpine
-  Alpine.start()
-</script>
