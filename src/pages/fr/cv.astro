@@ -9,24 +9,24 @@ const cvUrl = '/files/CV_Killian_PERZO_2024.pdf';
     <h1 class="text-4xl mb-4 text-gold">Curriculum Vitae</h1>
 
     <p class="mb-6 text-lg">
-      Data Analyst en alternance chez Median Technologies, je poursuis un Master of Science in Data Analytics à la DSTI.
-      Mon parcours mêle sciences du sport, ingénierie de la donnée et projets d’analyse appliquée. Je recherche un poste hybride mêlant visualisation, exploration et structuration des données.
+      Alternant Data Analyst chez Median Technologies, je finalise un Master of Science in Data Analytics à la DSTI.
+      Mon parcours mêle sciences du sport, ingénierie de la donnée et projets concrets en entreprise ou personnels. Je recherche un poste hybride mêlant visualisation, exploration et structuration des données.
     </p>
 
     <!-- Expériences -->
     <div class="grid sm:grid-cols-2 gap-10 mb-12">
       <div>
         <h2 class="text-2xl text-oldgold mb-4">Expérience professionnelle</h2>
-        <ul class="space-y-4">
+        <ul class="space-y-4 text-sm">
           <li>
             <strong>Data Analyst – Median Technologies</strong><br />
             <em>Alternance | Sep. 2024 – Déc. 2025</em><br />
-            Prédiction d’événements cliniques · Analyse de données DICOM · Modélisation ML
+            API JIRA automatisée · Analyse de données DICOM · Modélisation ML (Random Forest) · Dashboards & KPIs · Collaboration Agile
           </li>
           <li>
             <strong>Data Analyst – Monext</strong><br />
-            <em>Janv. 2022 – Août 2022</em><br />
-            Dashboard client · KPI · Formateur AWS Quicksight
+            <em>Janv. 2022 – Août 2024</em><br />
+            Dashboards client · KPI · Formateur AWS Quicksight
           </li>
           <li>
             <strong>Animateur TMS – Moovency</strong><br />
@@ -46,26 +46,26 @@ const cvUrl = '/files/CV_Killian_PERZO_2024.pdf';
       <!-- Formation -->
       <div>
         <h2 class="text-2xl text-oldgold mb-4">Formation</h2>
-        <ul class="space-y-4">
+        <ul class="space-y-4 text-sm">
           <li>
             <strong>DSTI</strong> — MSc in Data Analytics<br />
-            <em>2024 – 2025</em><br />
-            Data management, visualisation, IA appliquée
+            <em>2024 – en cours</em><br />
+            Data management · Visualisation · Machine learning appliqué
           </li>
           <li>
             <strong>IUT Vannes</strong> — BUT Sciences des données<br />
             <em>2022 – 2024</em><br />
-            Statistique, machine learning, NoSQL, modélisation
+            Statistique · Modélisation · NoSQL · Intelligence Artificielle
           </li>
           <li>
             <strong>Université Rennes 2</strong> — Licence STAPS<br />
             <em>2018 – 2022</em><br />
-            Ergonomie du sport, analyse motrice
+            Ergonomie du sport · Analyse motrice
           </li>
           <li>
             <strong>Lycée Frédéric Ozanam</strong> — Bac S SI<br />
             <em>2015 – 2018</em><br />
-            Option info · Erasmus Cesson-Sévigné
+            Option Informatique · Erasmus Cesson-Sévigné
           </li>
         </ul>
       </div>
@@ -76,31 +76,38 @@ const cvUrl = '/files/CV_Killian_PERZO_2024.pdf';
       <div>
         <h2 class="text-2xl text-oldgold mb-4">Compétences techniques</h2>
         <ul class="columns-2 text-sm marker:text-gold">
-          <li>Python</li><li>R</li><li>SQL</li><li>NoSQL</li>
-          <li>MongoDB</li><li>HTML/CSS</li><li>Excel</li><li>Power BI</li>
-          <li>AWS Quicksight</li><li>Dataiku</li><li>Google Analytics</li>
+          <li>Python</li><li>Pandas</li><li>Scikit-learn</li><li>R</li>
+          <li>SQL</li><li>NoSQL</li><li>MongoDB</li><li>Git</li>
+          <li>Streamlit</li><li>Power BI</li><li>AWS Quicksight</li><li>Dataiku</li>
+          <li>Excel</li><li>Google Analytics</li><li>HTML/CSS</li>
         </ul>
       </div>
       <div>
         <h2 class="text-2xl text-oldgold mb-4">Langues & Certifications</h2>
         <ul class="text-sm list-disc list-inside marker:text-gold">
-          <li>Anglais : B2/C1 – Italien : A2</li>
-          <li>BAFA – Neo4j Certified</li>
-          <li>SAS V.B.A. Specialist – Power BI (à venir)</li>
-          <li>Microsoft Office Specialist (à venir)</li>
+          <li>Anglais : B2 oral, C1 écrit – Italien : A2</li>
+          <li>Neo4j Certified</li>
+          <li>SAS Visual Business Analytics Specialist</li>
+          <li>Power BI – Microsoft Office (certifications à venir)</li>
         </ul>
       </div>
     </div>
 
+    <!-- Projets personnels -->
+    <div class="mb-12">
+      <h2 class="text-2xl text-oldgold mb-4">Projets personnels</h2>
+      <ul class="text-sm list-disc list-inside marker:text-gold">
+        <li><strong>DataBad</strong> — Application de revue de matchs de badminton : scoreboard, annotations, classification automatique des coups (ML), interface Streamlit & Flutter.</li>
+        <li><strong>Budget Tracker</strong> — Gestion budgétaire personnelle en Python/Streamlit : système de budgets mensuels, imports CSV sécurisés, graphiques 12 mois, système de migrations.</li>
+        <li><strong>QueryBot API</strong> — API interne pour la création automatisée de tickets JIRA chez Median Technologies : gestion OAuth, logs, multi-environnements.</li>
+      </ul>
+    </div>
+
     <!-- Boutons -->
     <div class="mb-4 flex flex-wrap gap-4 items-center">
-      <a
-        href={cvUrl}
-        download
-        class="btn-primary">
+      <a href={cvUrl} download class="btn-primary">
         Télécharger le CV (PDF)
-    </a>
-
+      </a>
       <a href="mailto:killian.perzo@gmail.com" class="hover:underline">killian.perzo@gmail.com</a>
       <a href="https://www.linkedin.com/in/killian-perzo-24085417a" class="hover:underline" target="_blank">
         LinkedIn
