@@ -1,0 +1,7 @@
+---
+import { marked } from 'marked';
+
+const { body } = Astro.props;
+---
+
+<article class="prose prose-slate max-w-none prose-headings:font-semibold prose-img:rounded prose-a:text-gold" set:html={marked(body)} />

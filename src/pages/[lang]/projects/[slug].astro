@@ -1,7 +1,8 @@
 ---
-
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
+import { getCollection, getEntryBySlug } from 'astro:content';
+import MarkdownRenderer from '../../../components/MarkdownRenderer.astro';
+
 
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
@@ -14,31 +15,39 @@ export async function getStaticPaths() {
   }));
 }
 
-const { params } = Astro;
-const { lang, slug } = params;
+const { lang, slug } = Astro.params;
 
 const allProjects = await getCollection('projects');
-const project = allProjects.find(
+
+// On trouve le projet depuis le slug
+const projectMeta = allProjects.find(
   (p) => p.slug === slug && p.data.locale === lang
 );
 
-if (!project) {
-  throw new Error(`Project "${slug}" not found for locale "${lang}".`);
+if (!projectMeta) {
+  throw new Error(`Projet "${slug}" introuvable pour la locale "${lang}".`);
 }
 
-const { title, description, image, github, stack, tag, translationOf } = project.data;
+// Convertit le slug `budget-tracker_fr` → `budget-tracker.fr`
+const project = await getEntryBySlug('projects', slug);
+
+if (!project) {
+  throw new Error(`Fichier de contenu pour "${slug}" introuvable.`);
+}
+
+const { title, description, image, github, stack, translationOf } = project.data;
 
 const otherLang = lang === 'fr' ? 'en' : 'fr';
 const altVersion = allProjects.find(
   (p) => p.data.translationOf === translationOf && p.data.locale === otherLang
 );
+
+const altLangHref = altVersion ? `/${otherLang}/projects/${altVersion.slug}` : null;
+
 ---
 
+<BaseLayout lang={lang} altLangHref={altLangHref}>
 
-
-
-
-<BaseLayout>
   <section class="max-w-3xl mx-auto py-12">
     <h1 class="text-4xl font-bold text-charcoal mb-6">{title}</h1>
     {description && <p class="text-gray-600 mb-6">{description}</p>}
@@ -53,9 +62,8 @@ const altVersion = allProjects.find(
       </ul>
     )}
 
-    <article class="prose max-w-none">
-      {project.body}
-    </article>
+    <MarkdownRenderer body={project.body} />
+
 
     {github && (
       <p class="mt-8">

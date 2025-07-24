@@ -12,6 +12,8 @@ const navLinks = [
   { label: 'CV', href: `/${currentLang}/cv` },
   { label: currentLang === 'en' ? 'Contact' : 'Contact', href: `/${currentLang}/contact` },
 ];
+
+const { lang = currentLang, altLangHref } = Astro.props;
 ---
 
 
@@ -29,10 +31,9 @@ const navLinks = [
       ))}
 
       <!-- Langue -->
-      <a href={`/${altLang}${pathname.replace(/^\/(fr|en)/, '')}`} class="lang-switch">
+      <a href={altLangHref ?? `/${altLang}${pathname.replace(/^\/(fr|en)/, '')}`} class="lang-switch">
         {altLang === 'en' ? '🫖 EN' : '🥖 FR'}
       </a>
-
     </div>
 
     <!-- Burger (mobile only) -->
@@ -52,8 +53,8 @@ const navLinks = [
     {navLinks.map(link => (
       <a href={link.href} class="block text-gray-700 hover:text-blue-600 transition">{link.label}</a>
     ))}
-    <a href={`/${altLang}${pathname.replace(/^\/(fr|en)/, '')}`} class="block text-sm text-gray-500 hover:text-blue-600">
-      {altLang === 'en' ? '🫖 English' : '🥖 Français'}
+    <a href={altLangHref ?? `/${altLang}${pathname.replace(/^\/(fr|en)/, '')}`} class="lang-switch">
+      {altLang === 'en' ? '🫖 EN' : '🥖 FR'}
     </a>
   </div>
 </nav>
