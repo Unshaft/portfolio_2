@@ -29,19 +29,9 @@ const navLinks = [
       ))}
 
       <!-- Langue -->
-      <a id="lang-switch" href="#" class="lang-switch">
+      <a href={`/${altLang}${pathname.replace(/^\/(fr|en)/, '')}`} class="lang-switch">
         {altLang === 'en' ? '🫖 EN' : '🥖 FR'}
       </a>
-      <script type="module">
-        import { setupLangSwitch } from '/src/scripts/lang-switch.js';
-        window.addEventListener('DOMContentLoaded', () => {
-          setupLangSwitch('lang-switch');
-        });
-      </script>
-
-      
-
-
 
     </div>
 
