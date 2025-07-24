@@ -1,29 +1,83 @@
 ---
 title: "QueryBot API"
 slug: "query-maker_en"
-description: "A RESTful API that automates the creation of JIRA tickets from medical imaging data. Used internally at Median Technologies."
-stack: ["Python", "FastAPI", "JIRA API", "SQL"]
+description: "A RESTful API to automate the creation of JIRA tickets from internal databases. Designed for clinical teams at Median Technologies."
+stack: ["Python", "FastAPI", "JIRA API", "SQL", "OAuth"]
 image: "/img/median.png"
-github: "" # (or leave empty if private)
+github: "" # private
 tag: ["Featured"]
 locale: "en"
 translationOf: "query-maker"
-category : "pro"
-startDate : ""
-endDate : ""
-updatedDate : ""
+category: "pro"
+startDate: "2025-03-20"
+endDate: "2025-07-20"
+updatedDate: "2025-07-24"
 ---
 
-This project was developed during my time at **Median Technologies** to streamline the reporting workflow in medical imaging projects.
+## 🧩 Context
 
-The API receives query data from DICOM files and generates well-structured tickets directly in **JIRA**, following predefined rules and custom field mappings. A dry-run mode, logging system and environment separation ensure safety and traceability.
+During my work-study at **Median Technologies**, I developed an API called **QueryBot** to automate the creation of JIRA tickets for medical imaging projects.  
+The goal: avoid manual omissions by relying on detection rules derived from internal databases.
 
-Main features include:
+This internal tool was designed to simplify workflows for **clinical project managers** and ensure better operational tracking.
 
-- Dynamic ticket creation with field mapping
-- Automatic detection of existing tickets (idempotent)
-- JSON-based configuration and extensibility
-- FastAPI endpoints with Swagger UI
-- Dockerized for deployment on internal servers
+---
 
-> Designed for production use by clinical operations teams.
+## ⚙️ Features
+
+- Automatic JIRA ticket creation based on customizable rules
+- Detection of existing tickets to avoid duplicates (idempotence)
+- Smart assignment based on the issue type
+- Pre-validation and error handling
+- Dry-run mode and multi-environment support (`dev`, `preprod`, `prod`)
+- Complete logging for traceability and audits
+
+---
+
+## 🧠 Technical architecture
+
+```txt
+SQL + CSV 
+   ↓
+Python pre-processing (filtering, mapping, validation)
+   ↓
+JSON construction
+   ↓
+FastAPI call to JIRA
+   ↓
+Logger + response
+```
+
+- Runs in **background**
+- Dynamic mapping system per environment
+- Centralized error handling
+- Secure authentication via **OAuth**
+
+---
+
+## 🧪 Quality & robustness
+
+- Unit testing with **pytest**
+- Technical and functional logs (INFO/ERROR levels)
+- Clear environment separation (`config_dev.json`, etc.)
+
+
+---
+
+## 🚀 Deployment & usage
+
+- Deployment planned for **August 2025**
+- To be used in production by around **20 project managers**
+- Integrated into the company’s JIRA ecosystem
+- Lightweight stack, deployable on internal servers
+
+---
+
+## 💡 Impact
+
+Although user feedback is still to come, QueryBot is expected to:
+- **Save time** on ticket creation
+- **Reduce the risk of omissions**
+- **Improve quality tracking** for clinical project workflows
+
+---
