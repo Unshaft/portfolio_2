@@ -1,0 +1,10 @@
+---
+// src/components/SpeedInsights.astro
+import { SpeedInsights } from '@vercel/speed-insights/next'
+import { Fragment } from 'react'
+---
+
+// Astro ne supporte pas directement JSX, donc on le rend avec une fonction React
+<Fragment>
+  <SpeedInsights />
+</Fragment>
