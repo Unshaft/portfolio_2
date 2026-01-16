@@ -9,6 +9,7 @@ github: "https://github.com/Unshaft/datasentinel-ai"
 tag: ["Featured"]
 translationOf: "datasentinel-ai"
 category: "perso"
+order: 1
 startDate: "2026-01-01"
 updatedDate: "2026-01-16"
 ---

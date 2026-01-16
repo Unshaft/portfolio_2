@@ -8,6 +8,7 @@ image: "/img/wedding-website/preview.png"
 tag: ["À la une"]
 translationOf: "wedding-website"
 category: "perso"
+order: 3
 startDate: "2025-10-01"
 updatedDate: "2026-01-16"
 ---

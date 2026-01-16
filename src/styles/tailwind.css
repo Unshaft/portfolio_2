@@ -22,11 +22,11 @@
 }
 @layer components {
   .prose {
-    @apply text-charcoal max-w-none;
+    @apply text-charcoal dark:text-gray-200 max-w-none;
   }
 
   .prose h1, .prose h2, .prose h3 {
-    @apply font-bold text-charcoal;
+    @apply font-bold text-charcoal dark:text-white;
   }
 
   .prose a {
@@ -34,23 +34,51 @@
   }
 
   .prose blockquote {
-    @apply border-l-4 border-gold pl-4 italic text-charcoal bg-slate/40 rounded;
+    @apply border-l-4 border-gold pl-4 italic text-charcoal dark:text-gray-300 bg-slate/40 dark:bg-gray-700/40 rounded;
   }
 
   .prose code {
-    @apply bg-slate px-1 py-0.5 rounded text-[0.9em] font-mono;
+    @apply bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-1 py-0.5 rounded text-[0.9em] font-mono;
   }
 
   .prose ul {
     @apply list-disc list-inside marker:text-gold;
   }
 
+  .prose li {
+    @apply text-charcoal dark:text-gray-200;
+  }
+
   .prose strong {
-    @apply text-charcoal font-semibold;
+    @apply text-charcoal dark:text-white font-semibold;
   }
 
   .prose img {
     @apply rounded shadow-md;
+  }
+
+  .prose p {
+    @apply text-charcoal dark:text-gray-300;
+  }
+
+  .prose table {
+    @apply w-full border-collapse;
+  }
+
+  .prose th {
+    @apply bg-gray-100 dark:bg-gray-700 text-charcoal dark:text-white font-semibold px-3 py-2 text-left border-b border-gray-300 dark:border-gray-600;
+  }
+
+  .prose td {
+    @apply px-3 py-2 border-b border-gray-200 dark:border-gray-700 text-charcoal dark:text-gray-300;
+  }
+
+  .prose pre {
+    @apply bg-gray-100 dark:bg-gray-800 p-4 rounded-lg overflow-x-auto;
+  }
+
+  .prose pre code {
+    @apply bg-transparent p-0;
   }
 }
 

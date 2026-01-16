@@ -10,8 +10,9 @@ const projects = defineCollection({
     github: z.string().optional(),
     stack: z.array(z.string()).optional(),
     tag: z.array(z.string()).optional(),
-    translationOf : z.string(),
-    startDate: z.string().optional(),      // Format : YYYY-MM-DD
+    translationOf: z.string(),
+    order: z.number().optional(),
+    startDate: z.string().optional(),
     endDate: z.string().optional(),
     updatedDate: z.string().optional(),
     category: z.enum(['pro', 'perso', 'study']).optional(),

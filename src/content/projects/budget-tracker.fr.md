@@ -9,6 +9,7 @@ github: "https://github.com/unshaft/budget-tracker"
 tag: ["À la une"]
 translationOf: "budget-tracker"
 category: "perso"
+order: 5
 startDate: "2025-01-07"
 endDate: "2025-07-20"
 updatedDate: "2025-07-20"

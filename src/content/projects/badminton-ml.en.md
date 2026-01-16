@@ -9,6 +9,7 @@ github: "" # to be completed
 tag: ["Coming soon"]
 translationOf: "badminton-ml"
 category: "perso"
+order: 6
 startDate: "2024-10-01"
 endDate: ""
 updatedDate: "2025-07-24"

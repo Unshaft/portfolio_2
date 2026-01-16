@@ -9,6 +9,7 @@ github: "https://github.com/unshaft/data-quality-agent"
 tag: ["Featured"]
 translationOf: "data-quality-agent"
 category: "perso"
+order: 2
 startDate: "2025-09-01"
 updatedDate: "2026-01-16"
 ---

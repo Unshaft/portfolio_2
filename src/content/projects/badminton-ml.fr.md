@@ -8,10 +8,11 @@ image: "/img/process.png"
 github: "" # à compléter
 tag: ["Bientôt disponible"]
 translationOf: "badminton-ml"
-category : "perso"
-startDate : "2024-10-01"
-endDate : ""
-updatedDate : "2025-07-24"
+category: "perso"
+order: 6
+startDate: "2024-10-01"
+endDate: ""
+updatedDate: "2025-07-24"
 ---
 
 ## 🧩 Contexte

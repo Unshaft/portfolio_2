@@ -9,6 +9,7 @@ tag: ["Featured"]
 locale: "en"
 translationOf: "query-maker"
 category: "pro"
+order: 4
 startDate: "2025-03-20"
 endDate: "2025-07-20"
 updatedDate: "2025-07-24"

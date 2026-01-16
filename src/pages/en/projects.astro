@@ -5,9 +5,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const lang = 'en';
 
-const projects = (await getCollection('projects')).filter(
-  (project) => project.data.locale === lang && !!project.slug
-);
+const projects = (await getCollection('projects'))
+  .filter((project) => project.data.locale === lang && !!project.slug)
+  .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
 
 console.log(`📦 [${lang.toUpperCase()}] Projects shown on /${lang}/projects:`);
 projects.forEach((p) => {

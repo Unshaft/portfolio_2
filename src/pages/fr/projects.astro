@@ -3,9 +3,9 @@ import { getCollection } from 'astro:content';
 import ProjectCard from '../../components/ProjectCard.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const projects = (await getCollection('projects')).filter(
-  (project) => project.data.locale === 'fr' && !!project.slug
-);
+const projects = (await getCollection('projects'))
+  .filter((project) => project.data.locale === 'fr' && !!project.slug)
+  .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
 
 
 const lang = 'fr';
