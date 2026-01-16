@@ -19,12 +19,17 @@ projects.forEach((p) => {
 });
 ---
 
-<BaseLayout>
-  <h1 class="text-5xl font-bold text-charcoal mb-8">Mes projets</h1>
+<BaseLayout
+  lang="fr"
+  altLangHref="/en/projects"
+  title="Projets - Killian Perzo"
+  description="Découvrez mes projets en Data Analysis, Machine Learning, APIs et développement web. Budget Tracker, QueryBot API, DataBad et plus encore."
+>
+  <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-charcoal dark:text-white mb-6 sm:mb-8 px-2 sm:px-0">Mes projets</h1>
 
-  <div class="grid md:grid-cols-2 gap-6">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 px-2 sm:px-0">
     {projects.map((project) => (
-      <a href={`/${lang}/projects/${project.slug}`} class="block">
+      <a href={`/${lang}/projects/${project.slug}`} class="block group">
         <ProjectCard project={project.data} />
       </a>
     ))}

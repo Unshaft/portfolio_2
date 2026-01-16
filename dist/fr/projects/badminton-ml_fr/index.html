@@ -1,0 +1,202 @@
+<!DOCTYPE html><html lang="fr" class="scroll-smooth"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="color-scheme" content="light dark"><title>Portfolio Killian Perzo</title><!-- Prevent flash of wrong theme --><script>
+      if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
+    </script><!-- SEO Meta Tags --><meta name="description" content="Portfolio de Killian Perzo - Data Analyst &#38; Développeur Full-Stack. Découvrez mes projets en Python, Machine Learning, APIs et développement web."><meta name="author" content="Killian Perzo"><meta name="robots" content="index, follow"><link rel="canonical" href="https://killianperzo.dev/fr/projects/badminton-ml_fr/"><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="https://killianperzo.dev/fr/projects/badminton-ml_fr/"><meta property="og:title" content="Portfolio Killian Perzo"><meta property="og:description" content="Portfolio de Killian Perzo - Data Analyst &#38; Développeur Full-Stack. Découvrez mes projets en Python, Machine Learning, APIs et développement web."><meta property="og:image" content="https://killianperzo.dev/img/og-image.png"><meta property="og:locale" content="fr_FR"><!-- Twitter --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Portfolio Killian Perzo"><meta name="twitter:description" content="Portfolio de Killian Perzo - Data Analyst &#38; Développeur Full-Stack. Découvrez mes projets en Python, Machine Learning, APIs et développement web."><meta name="twitter:image" content="https://killianperzo.dev/img/og-image.png"><!-- Alternate language --><link rel="alternate" hreflang="en" href="https://killianperzo.dev/en/projects/badminton-ml_en"><link rel="alternate" hreflang="fr" href="https://killianperzo.dev/fr/projects/badminton-ml_fr/"><!-- Favicon --><link rel="icon" type="image/x-icon" href="/favicon/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"><!-- Preconnect for performance --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="/_astro/_slug_.DSVnlsir.css">
+<link rel="stylesheet" href="/_astro/_slug_.DnnLr-Xo.css"></head> <body class="bg-slate dark:bg-gray-900 text-charcoal dark:text-gray-100 flex flex-col min-h-screen transition-colors duration-300"> <nav class="w-full bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 px-4 sm:px-6 py-3 sm:py-4 shadow-md transition-colors duration-300 sticky top-0 z-50"> <div class="max-w-7xl mx-auto flex items-center justify-between"> <!-- Logo --> <a href="/fr/" class="logo hover:tracking-wide transition-all duration-300 text-lg sm:text-xl"> <span class="text-blue-600 dark:text-gold">Killian</span><span class="text-gray-800 dark:text-gray-200">.dev</span> </a> <!-- Desktop menu --> <div class="hidden md:flex items-center space-x-4 lg:space-x-6 font-medium"> <a href="/fr/" class="nav-link text-sm lg:text-base">Accueil</a><a href="/fr/projects" class="nav-link text-sm lg:text-base">Projets</a><a href="/fr/about" class="nav-link text-sm lg:text-base">À propos</a><a href="/fr/cv" class="nav-link text-sm lg:text-base">CV</a><a href="/fr/contact" class="nav-link text-sm lg:text-base">Contact</a> <!-- Langue --> <a href="/en/projects/badminton-ml_en" class="lang-switch"> 🫖 EN </a> <!-- Dark Mode Toggle --> <button id="theme-toggle" type="button" class="p-2 rounded-lg text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-700 transition-colors" aria-label="Toggle dark mode"> <!-- Icone Soleil (visible en dark mode) --> <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path> </svg> <!-- Icone Lune (visible en light mode) --> <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path> </svg> </button> <script>
+  // Récupérer le thème stocké ou préférence système
+  function getTheme() {
+    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+      return localStorage.getItem('theme');
+    }
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark';
+    }
+    return 'light';
+  }
+
+  // Appliquer le thème
+  function setTheme(theme) {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    localStorage.setItem('theme', theme);
+    updateIcons(theme);
+  }
+
+  // Mettre à jour les icônes
+  function updateIcons(theme) {
+    const lightIcon = document.getElementById('theme-toggle-light-icon');
+    const darkIcon = document.getElementById('theme-toggle-dark-icon');
+
+    if (lightIcon && darkIcon) {
+      if (theme === 'dark') {
+        lightIcon.classList.remove('hidden');
+        darkIcon.classList.add('hidden');
+      } else {
+        lightIcon.classList.add('hidden');
+        darkIcon.classList.remove('hidden');
+      }
+    }
+  }
+
+  // Initialisation
+  const initialTheme = getTheme();
+  setTheme(initialTheme);
+
+  // Event listener pour le toggle
+  document.getElementById('theme-toggle')?.addEventListener('click', () => {
+    const currentTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+  });
+</script> </div> <!-- Burger (mobile only) --> <div class="md:hidden flex items-center gap-2"> <button id="theme-toggle" type="button" class="p-2 rounded-lg text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-700 transition-colors" aria-label="Toggle dark mode"> <!-- Icone Soleil (visible en dark mode) --> <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path> </svg> <!-- Icone Lune (visible en light mode) --> <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path> </svg> </button> <script>
+  // Récupérer le thème stocké ou préférence système
+  function getTheme() {
+    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+      return localStorage.getItem('theme');
+    }
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark';
+    }
+    return 'light';
+  }
+
+  // Appliquer le thème
+  function setTheme(theme) {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    localStorage.setItem('theme', theme);
+    updateIcons(theme);
+  }
+
+  // Mettre à jour les icônes
+  function updateIcons(theme) {
+    const lightIcon = document.getElementById('theme-toggle-light-icon');
+    const darkIcon = document.getElementById('theme-toggle-dark-icon');
+
+    if (lightIcon && darkIcon) {
+      if (theme === 'dark') {
+        lightIcon.classList.remove('hidden');
+        darkIcon.classList.add('hidden');
+      } else {
+        lightIcon.classList.add('hidden');
+        darkIcon.classList.remove('hidden');
+      }
+    }
+  }
+
+  // Initialisation
+  const initialTheme = getTheme();
+  setTheme(initialTheme);
+
+  // Event listener pour le toggle
+  document.getElementById('theme-toggle')?.addEventListener('click', () => {
+    const currentTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+  });
+</script> <button id="burger-btn" class="flex items-center justify-center w-10 h-10 text-gray-600 dark:text-gray-300 focus:outline-none rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Menu" aria-expanded="false"> <svg id="burger-icon" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"> <path d="M4 6h16M4 12h16M4 18h16"></path> </svg> <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"> <path d="M6 18L18 6M6 6l12 12"></path> </svg> </button> </div> </div> <!-- Mobile menu --> <div id="mobile-menu" class="md:hidden hidden mt-4 pb-4 border-t border-gray-200 dark:border-gray-700 pt-4 animate-fadeIn"> <div class="flex flex-col space-y-1"> <a href="/fr/" class="block px-4 py-3 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-gold hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-colors"> Accueil </a><a href="/fr/projects" class="block px-4 py-3 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-gold hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-colors"> Projets </a><a href="/fr/about" class="block px-4 py-3 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-gold hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-colors"> À propos </a><a href="/fr/cv" class="block px-4 py-3 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-gold hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-colors"> CV </a><a href="/fr/contact" class="block px-4 py-3 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-gold hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-colors"> Contact </a> <a href="/en/projects/badminton-ml_en" class="block px-4 py-3 text-base font-medium text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-gold hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-colors"> 🫖 English </a> </div> </div> </nav> <script>
+  const burgerBtn = document.getElementById('burger-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const burgerIcon = document.getElementById('burger-icon');
+  const closeIcon = document.getElementById('close-icon');
+
+  burgerBtn?.addEventListener('click', () => {
+    const isOpen = !mobileMenu.classList.contains('hidden');
+    mobileMenu.classList.toggle('hidden');
+    burgerIcon.classList.toggle('hidden');
+    closeIcon.classList.toggle('hidden');
+    burgerBtn.setAttribute('aria-expanded', !isOpen);
+  });
+
+  // Fermer le menu quand on clique sur un lien
+  mobileMenu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      burgerIcon.classList.remove('hidden');
+      closeIcon.classList.add('hidden');
+      burgerBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script> <main class="flex-1 w-full max-w-6xl mx-auto px-4 py-12">  <section class="max-w-3xl mx-auto py-12"> <h1 class="text-4xl font-bold text-charcoal mb-6">🏸 Classificateur de coups au badminton</h1> <p class="text-gray-600 mb-6">Un module de machine learning pour identifier les coups dans un match de badminton, et aider les joueurs à mieux se connaître.</p> <img src="/img/process.png" alt="🏸 Classificateur de coups au badminton" class="mb-6 rounded shadow"> <ul class="flex flex-wrap gap-2 text-sm text-white mb-6"> <li class="bg-charcoal px-3 py-1 rounded">Python</li><li class="bg-charcoal px-3 py-1 rounded">scikit-learn</li><li class="bg-charcoal px-3 py-1 rounded">OpenCV</li><li class="bg-charcoal px-3 py-1 rounded">MediaPipe</li><li class="bg-charcoal px-3 py-1 rounded">Pandas</li> </ul> <article class="prose prose-slate max-w-none prose-headings:font-semibold prose-img:rounded prose-a:text-gold"><h2>🧩 Contexte</h2>
+<p>Ce projet s’inscrit dans <strong>DataBad</strong>, mon initiative personnelle pour permettre aux joueurs de badminton d’analyser leurs matchs à l’aide des données.<br>L’objectif global est de mieux comprendre son propre style de jeu, d’identifier des axes de progression et de faciliter l&#39;entraînement personnalisé.</p>
+<p>Ce classificateur de coups constitue l’un des modules de cette suite : il vise à identifier automatiquement, à partir de la vidéo d’un match, les types de coups joués (smash, dégagement, amorti, etc.).</p>
+<p>Pensé d’abord pour moi, il a vocation à être utile à terme pour des <strong>joueurs, coachs, clubs ou fédérations</strong> souhaitant exploiter la data dans leur stratégie.</p>
+<hr>
+<h2>🎯 Objectifs</h2>
+<ul>
+<li>Identifier le <strong>début et la fin de chaque point</strong></li>
+<li>Détecter les <strong>services</strong> et scorer automatiquement</li>
+<li>Classifier les <strong>types de coups</strong> joués (à venir)</li>
+<li>Permettre une analyse post-match des séquences et des highlights</li>
+<li>Offrir une base solide pour le coaching individualisé</li>
+</ul>
+<hr>
+<h2>🎥 Données et annotations</h2>
+<p>Le projet repose sur des vidéos filmées lors de mes propres matchs (plusieurs heures de rush).<br>Je prévois d’annoter manuellement les premières séquences pour constituer un jeu d’apprentissage, en intégrant :</p>
+<ul>
+<li>Le timecode des services</li>
+<li>Le début/fin de point</li>
+<li>Le type de coup (par la suite)</li>
+</ul>
+<hr>
+<h2>🧠 Pipeline technique</h2>
+<p>Le pipeline s’articule ainsi :</p>
+<ol>
+<li><strong>Détection de pose</strong> via MediaPipe</li>
+<li>Extraction des <strong>features</strong> par image (position, mouvement, statique/dynamique…)</li>
+<li>Passage dans un modèle ML</li>
+<li>Prédiction du type de coup</li>
+</ol>
+<ul>
+<li>Traitement à <strong>30 FPS</strong></li>
+<li>Extraction de features avec OpenCV et Pandas</li>
+<li>Annotation prévue dans un format standard (CSV ou JSON)</li>
+</ul>
+<hr>
+<h2>🤖 Machine Learning</h2>
+<ul>
+<li>Modèle initial : <strong>Random Forest</strong></li>
+<li>Enregistrement avec <strong>joblib</strong></li>
+<li>Évaluation prévue : <strong>accuracy</strong>, <strong>matrice de confusion</strong>, <strong>courbe ROC</strong>, <strong>AUC</strong></li>
+<li>Possibilité d’évolution vers du <strong>deep learning</strong> si besoin</li>
+</ul>
+<p>Le tout sera développé en notebook dans un premier temps, puis structuré en modules Python réutilisables.</p>
+<hr>
+<h2>🧩 Intégration DataBad</h2>
+<p>Ce module sera intégré à la partie <strong>review de match</strong> de DataBad, pour fournir à l’utilisateur un <strong>résumé automatique</strong> des coups et points joués.</p>
+<p>L’idée est de permettre, à terme :</p>
+<ul>
+<li>des <strong>analyses statistiques ciblées</strong> (ex. taux de smash gagnants)</li>
+<li>des <strong>highlights vidéo automatiques</strong></li>
+<li>une <strong>restitution visuelle des prédictions dans la vidéo</strong></li>
+</ul>
+<p>Le fonctionnement restera local, avec une interface pensée pour le joueur individuel.</p>
+<hr>
+<h2>🚧 Statut</h2>
+<p>Le projet est encore en <strong>phase de prototype</strong>.<br>L’étape suivante sera :</p>
+<ul>
+<li>l’annotation manuelle des premiers matchs</li>
+<li>le test de modèles simples</li>
+<li>l’évaluation sur un petit jeu de données</li>
+</ul>
+<hr>
+</article>  </section>  </main> <footer class="bg-charcoal text-slate text-sm mt-16"> <div class="max-w-7xl mx-auto px-4 py-8 flex flex-col sm:flex-row justify-between items-center gap-4"> <p class="text-center sm:text-left">&copy; 2026 Killian — All rights reserved.</p> <div class="flex flex-wrap justify-center sm:justify-end gap-4"> <a href="https://github.com/Unshaft" class="hover:text-gold transition-colors" target="_blank" rel="noopener noreferrer">
+GitHub
+</a> <a href="https://www.linkedin.com/in/killian-perzo-24085417a" class="hover:text-gold transition-colors" target="_blank" rel="noopener noreferrer">
+LinkedIn
+</a> <a href="mailto:killian.perzo@gmail.com" class="hover:text-gold transition-colors">
+Email
+</a> <a href="/fr/contact" class="hover:text-gold transition-colors">
+Contact
+</a> </div> </div> </footer> <script type="module">
+      import Alpine from 'alpinejs';
+      window.Alpine = Alpine;
+      Alpine.start();
+    </script> </body> </html>

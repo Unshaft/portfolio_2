@@ -7,29 +7,34 @@ const allProjects = await getCollection('projects');
 const projects = allProjects.filter(p => p.data.locale === 'en');
 ---
 
-<IndexLayout>
+<IndexLayout
+  lang="en"
+  altLangHref="/fr"
+  title="Killian Perzo - Data Analyst & Full-Stack Developer"
+  description="Killian Perzo's Portfolio. Discover my projects in Python, Machine Learning, REST APIs and web development. Passionate Data Analyst and creator of DataBad."
+>
   <DotNavigation client:only="react" />
 
   <!-- Section 1 : Welcome -->
-  <section id="welcome" class="min-h-full snap-start flex flex-col justify-center items-center px-6 py-20 bg-slate-50" data-aos="fade-up">
-    <h1 class="text-4xl font-bold mb-4">Welcome to my portfolio 👋</h1>
-    <p class="text-lg text-center max-w-2xl">I'm Killian, a data enthusiast and creator of  <strong>DataBad</strong>. Discover my projects and journey.</p>
-    <a href="#projects" class="mt-8 bg-gold text-white px-6 py-3 rounded">🚀 View my projects</a>
+  <section id="welcome" class="min-h-full snap-start flex flex-col justify-center items-center px-4 sm:px-6 py-12 sm:py-20 bg-slate-50 dark:bg-gray-800" data-aos="fade-up">
+    <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-charcoal dark:text-white text-center leading-tight">Welcome to my portfolio 👋</h1>
+    <p class="text-base sm:text-lg text-center max-w-2xl text-gray-700 dark:text-gray-300 px-2">I'm Killian, a data enthusiast and creator of <strong class="text-charcoal dark:text-gold">DataBad</strong>. Discover my projects and journey.</p>
+    <a href="#projects" class="mt-6 sm:mt-8 bg-gold hover:bg-oldgold text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded text-sm sm:text-base transition-colors active:scale-95">🚀 View my projects</a>
   </section>
 
   <!-- Section 2 : Projects -->
-  <section id="projects" class="min-h-full snap-start flex flex-col justify-center items-center px-6 py-20 bg-slate-100" data-aos="fade-up">
-    <h2 class="text-3xl font-bold mb-6">📌 Recent Projects</h2>
-    <ul class="grid md:grid-cols-2 gap-6">
+  <section id="projects" class="min-h-full snap-start flex flex-col justify-center items-center px-4 sm:px-6 py-12 sm:py-20 bg-slate-100 dark:bg-gray-900" data-aos="fade-up">
+    <h2 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-charcoal dark:text-white text-center">📌 Recent Projects</h2>
+    <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 w-full max-w-4xl">
       {projects.slice(0, 2).map(project => (
-        <li class="bg-white shadow rounded-lg overflow-hidden transition hover:shadow-xl">
-          <a href={`/en/projects/${project.slug}`} class="block p-6 space-y-3 h-full">
-            <div class="flex items-center justify-between">
-              <h3 class="font-semibold text-lg text-charcoal group-hover:text-gold transition">
+        <li class="bg-white dark:bg-gray-800 shadow rounded-lg overflow-hidden transition hover:shadow-xl active:scale-[0.98]">
+          <a href={`/en/projects/${project.slug}`} class="block p-4 sm:p-6 space-y-2 sm:space-y-3 h-full">
+            <div class="flex items-start sm:items-center justify-between gap-2">
+              <h3 class="font-semibold text-base sm:text-lg text-charcoal dark:text-white group-hover:text-gold transition flex-1">
                 {project.data.title}
               </h3>
               {project.data.category && (
-                <span class={`text-xs font-medium px-2 py-1 rounded-full ${
+                <span class={`text-xs font-medium px-2 py-1 rounded-full shrink-0 ${
                   project.data.category === 'pro' ? 'bg-blue-600' :
                   project.data.category === 'perso' ? 'bg-purple-600' :
                   project.data.category === 'étude' ? 'bg-green-600' : ''
@@ -38,7 +43,7 @@ const projects = allProjects.filter(p => p.data.locale === 'en');
                 </span>
               )}
             </div>
-            <p class="text-sm text-gray-600">{project.data.description}</p>
+            <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-3">{project.data.description}</p>
           </a>
         </li>
       ))}
@@ -46,16 +51,16 @@ const projects = allProjects.filter(p => p.data.locale === 'en');
   </section>
 
   <!-- Section 3 : Skills -->
-  <section id="skills" class="min-h-full snap-start flex flex-col justify-center items-center px-6 py-20 bg-slate-50" data-aos="fade-up">
-    <h2 class="text-2xl font-semibold text-charcoal mb-6 flex items-center gap-2">
-      <span class="text-pink-600 text-xl">💼</span> Technicals Skills
+  <section id="skills" class="min-h-full snap-start flex flex-col justify-center items-center px-4 sm:px-6 py-12 sm:py-20 bg-slate-50 dark:bg-gray-800" data-aos="fade-up">
+    <h2 class="text-xl sm:text-2xl font-semibold text-charcoal dark:text-white mb-4 sm:mb-6 flex items-center gap-2">
+      <span class="text-pink-600 text-lg sm:text-xl">💼</span> Technical Skills
     </h2>
-    <div class="flex flex-wrap justify-center gap-4">
+    <div class="grid grid-cols-3 sm:flex sm:flex-wrap justify-center gap-2 sm:gap-4 w-full max-w-lg sm:max-w-none">
       {[{ name: 'Python', logo: '/icons/Python.svg' }, { name: 'SQL', logo: '/icons/SQL.svg' }, { name: 'Streamlit', logo: '/icons/Streamlit.svg' }, { name: 'API REST', logo: '/icons/Jira.svg' }, { name: 'MongoDB', logo: '/icons/MongoDB.svg' }, { name: 'Astro', logo: '/icons/Astro.svg' }]
       .map(skill => (
-        <div class="flex flex-col items-center justify-center p-4 gap-2 rounded-xl bg-white/70 shadow hover:shadow-md transition text-center min-w-[120px]">
-          <img src={skill.logo} alt={skill.name} class="h-8 w-8 object-contain" />
-          <span class="text-sm font-semibold text-charcoal">{skill.name}</span>
+        <div class="flex flex-col items-center justify-center p-2 sm:p-4 gap-1 sm:gap-2 rounded-lg sm:rounded-xl bg-white/70 dark:bg-gray-700/70 shadow hover:shadow-md transition text-center sm:min-w-[120px]">
+          <img src={skill.logo} alt={skill.name} class="h-6 w-6 sm:h-8 sm:w-8 object-contain dark:invert dark:brightness-200" />
+          <span class="text-xs sm:text-sm font-semibold text-charcoal dark:text-gray-200">{skill.name}</span>
         </div>
       ))}
     </div>

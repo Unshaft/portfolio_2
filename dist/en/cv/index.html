@@ -1,0 +1,164 @@
+<!DOCTYPE html><html lang="fr" class="scroll-smooth"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="color-scheme" content="light dark"><title>Resume | Killian Perzo</title><!-- Prevent flash of wrong theme --><script>
+      if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
+    </script><!-- SEO Meta Tags --><meta name="description" content="Portfolio de Killian Perzo - Data Analyst &#38; Développeur Full-Stack. Découvrez mes projets en Python, Machine Learning, APIs et développement web."><meta name="author" content="Killian Perzo"><meta name="robots" content="index, follow"><link rel="canonical" href="https://killianperzo.dev/en/cv/"><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="https://killianperzo.dev/en/cv/"><meta property="og:title" content="Resume | Killian Perzo"><meta property="og:description" content="Portfolio de Killian Perzo - Data Analyst &#38; Développeur Full-Stack. Découvrez mes projets en Python, Machine Learning, APIs et développement web."><meta property="og:image" content="https://killianperzo.dev/img/og-image.png"><meta property="og:locale" content="fr_FR"><!-- Twitter --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Resume | Killian Perzo"><meta name="twitter:description" content="Portfolio de Killian Perzo - Data Analyst &#38; Développeur Full-Stack. Découvrez mes projets en Python, Machine Learning, APIs et développement web."><meta name="twitter:image" content="https://killianperzo.dev/img/og-image.png"><!-- Alternate language --><link rel="alternate" hreflang="fr" href="https://killianperzo.dev/en/cv/"><!-- Favicon --><link rel="icon" type="image/x-icon" href="/favicon/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"><!-- Preconnect for performance --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="/_astro/_slug_.DSVnlsir.css">
+<link rel="stylesheet" href="/_astro/_slug_.DnnLr-Xo.css"></head> <body class="bg-slate dark:bg-gray-900 text-charcoal dark:text-gray-100 flex flex-col min-h-screen transition-colors duration-300"> <nav class="w-full bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 px-4 sm:px-6 py-3 sm:py-4 shadow-md transition-colors duration-300 sticky top-0 z-50"> <div class="max-w-7xl mx-auto flex items-center justify-between"> <!-- Logo --> <a href="/en/" class="logo hover:tracking-wide transition-all duration-300 text-lg sm:text-xl"> <span class="text-blue-600 dark:text-gold">Killian</span><span class="text-gray-800 dark:text-gray-200">.dev</span> </a> <!-- Desktop menu --> <div class="hidden md:flex items-center space-x-4 lg:space-x-6 font-medium"> <a href="/en/" class="nav-link text-sm lg:text-base">Home</a><a href="/en/projects" class="nav-link text-sm lg:text-base">Projects</a><a href="/en/about" class="nav-link text-sm lg:text-base">About</a><a href="/en/cv" class="nav-link text-sm lg:text-base">CV</a><a href="/en/contact" class="nav-link text-sm lg:text-base">Contact</a> <!-- Langue --> <a href="/fr/cv/" class="lang-switch"> 🥖 FR </a> <!-- Dark Mode Toggle --> <button id="theme-toggle" type="button" class="p-2 rounded-lg text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-700 transition-colors" aria-label="Toggle dark mode"> <!-- Icone Soleil (visible en dark mode) --> <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path> </svg> <!-- Icone Lune (visible en light mode) --> <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path> </svg> </button> <script>
+  // Récupérer le thème stocké ou préférence système
+  function getTheme() {
+    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+      return localStorage.getItem('theme');
+    }
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark';
+    }
+    return 'light';
+  }
+
+  // Appliquer le thème
+  function setTheme(theme) {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    localStorage.setItem('theme', theme);
+    updateIcons(theme);
+  }
+
+  // Mettre à jour les icônes
+  function updateIcons(theme) {
+    const lightIcon = document.getElementById('theme-toggle-light-icon');
+    const darkIcon = document.getElementById('theme-toggle-dark-icon');
+
+    if (lightIcon && darkIcon) {
+      if (theme === 'dark') {
+        lightIcon.classList.remove('hidden');
+        darkIcon.classList.add('hidden');
+      } else {
+        lightIcon.classList.add('hidden');
+        darkIcon.classList.remove('hidden');
+      }
+    }
+  }
+
+  // Initialisation
+  const initialTheme = getTheme();
+  setTheme(initialTheme);
+
+  // Event listener pour le toggle
+  document.getElementById('theme-toggle')?.addEventListener('click', () => {
+    const currentTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+  });
+</script> </div> <!-- Burger (mobile only) --> <div class="md:hidden flex items-center gap-2"> <button id="theme-toggle" type="button" class="p-2 rounded-lg text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-700 transition-colors" aria-label="Toggle dark mode"> <!-- Icone Soleil (visible en dark mode) --> <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path> </svg> <!-- Icone Lune (visible en light mode) --> <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path> </svg> </button> <script>
+  // Récupérer le thème stocké ou préférence système
+  function getTheme() {
+    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+      return localStorage.getItem('theme');
+    }
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark';
+    }
+    return 'light';
+  }
+
+  // Appliquer le thème
+  function setTheme(theme) {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    localStorage.setItem('theme', theme);
+    updateIcons(theme);
+  }
+
+  // Mettre à jour les icônes
+  function updateIcons(theme) {
+    const lightIcon = document.getElementById('theme-toggle-light-icon');
+    const darkIcon = document.getElementById('theme-toggle-dark-icon');
+
+    if (lightIcon && darkIcon) {
+      if (theme === 'dark') {
+        lightIcon.classList.remove('hidden');
+        darkIcon.classList.add('hidden');
+      } else {
+        lightIcon.classList.add('hidden');
+        darkIcon.classList.remove('hidden');
+      }
+    }
+  }
+
+  // Initialisation
+  const initialTheme = getTheme();
+  setTheme(initialTheme);
+
+  // Event listener pour le toggle
+  document.getElementById('theme-toggle')?.addEventListener('click', () => {
+    const currentTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+  });
+</script> <button id="burger-btn" class="flex items-center justify-center w-10 h-10 text-gray-600 dark:text-gray-300 focus:outline-none rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Menu" aria-expanded="false"> <svg id="burger-icon" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"> <path d="M4 6h16M4 12h16M4 18h16"></path> </svg> <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"> <path d="M6 18L18 6M6 6l12 12"></path> </svg> </button> </div> </div> <!-- Mobile menu --> <div id="mobile-menu" class="md:hidden hidden mt-4 pb-4 border-t border-gray-200 dark:border-gray-700 pt-4 animate-fadeIn"> <div class="flex flex-col space-y-1"> <a href="/en/" class="block px-4 py-3 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-gold hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-colors"> Home </a><a href="/en/projects" class="block px-4 py-3 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-gold hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-colors"> Projects </a><a href="/en/about" class="block px-4 py-3 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-gold hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-colors"> About </a><a href="/en/cv" class="block px-4 py-3 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-gold hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-colors"> CV </a><a href="/en/contact" class="block px-4 py-3 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-gold hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-colors"> Contact </a> <a href="/fr/cv/" class="block px-4 py-3 text-base font-medium text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-gold hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-colors"> 🥖 Français </a> </div> </div> </nav> <script>
+  const burgerBtn = document.getElementById('burger-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const burgerIcon = document.getElementById('burger-icon');
+  const closeIcon = document.getElementById('close-icon');
+
+  burgerBtn?.addEventListener('click', () => {
+    const isOpen = !mobileMenu.classList.contains('hidden');
+    mobileMenu.classList.toggle('hidden');
+    burgerIcon.classList.toggle('hidden');
+    closeIcon.classList.toggle('hidden');
+    burgerBtn.setAttribute('aria-expanded', !isOpen);
+  });
+
+  // Fermer le menu quand on clique sur un lien
+  mobileMenu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      burgerIcon.classList.remove('hidden');
+      closeIcon.classList.add('hidden');
+      burgerBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script> <main class="flex-1 w-full max-w-6xl mx-auto px-4 py-12">  <section class="max-w-5xl mx-auto px-4 py-12 prose"> <h1 class="text-4xl mb-4 text-gold">Resume</h1> <p class="mb-6 text-lg">
+Data Analyst apprentice at Median Technologies, currently completing a Master of Science in Data Analytics at DSTI.
+      My background combines sports sciences, data engineering and real-world applied projects. I'm looking for a hybrid role involving data visualization, exploration, and structuring.
+</p> <!-- Work Experience --> <div class="grid sm:grid-cols-2 gap-10 mb-12"> <div> <h2 class="text-2xl text-oldgold mb-4">Professional Experience</h2> <ul class="space-y-4 text-sm"> <li> <strong>Data Analyst – Median Technologies</strong><br> <em>Apprenticeship | Sep. 2024 – Dec. 2025</em><br>
+Automated JIRA API · DICOM data analysis · Machine learning (Random Forest) · Dashboards & KPIs · Agile collaboration
+</li> <li> <strong>Data Analyst – Monext</strong><br> <em>Jan. 2022 – Aug. 2024</em><br>
+Client dashboards · KPI monitoring · AWS Quicksight trainer
+</li> <li> <strong>TMS Facilitator – Moovency</strong><br>
+Ergonomic awareness workshops (Lidl France) · Field interventions
+</li> <li> <strong>Team Member – McDonald’s</strong><br>
+Customer service · Teamwork · Stress management
+</li> <li> <strong>Camp Leader – Wakanga</strong><br>
+Communication, creativity and knowledge sharing with kids
+</li> </ul> </div> <!-- Education --> <div> <h2 class="text-2xl text-oldgold mb-4">Education</h2> <ul class="space-y-4 text-sm"> <li> <strong>DSTI</strong> — MSc in Data Analytics<br> <em>2024 – ongoing</em><br>
+Data management · Visualization · Applied machine learning
+</li> <li> <strong>IUT Vannes</strong> — BSc in Data Science<br> <em>2022 – 2024</em><br>
+Statistics · Modeling · NoSQL · Artificial Intelligence
+</li> <li> <strong>Rennes 2 University</strong> — BA in Sports Science<br> <em>2018 – 2022</em><br>
+Sports ergonomics · Movement analysis
+</li> <li> <strong>Frédéric Ozanam High School</strong> — Science Baccalaureate<br> <em>2015 – 2018</em><br>
+Engineering Sciences · Computer Science · Erasmus Cesson-Sévigné
+</li> </ul> </div> </div> <!-- Skills --> <div class="grid sm:grid-cols-2 gap-10 mb-12"> <div> <h2 class="text-2xl text-oldgold mb-4">Technical Skills</h2> <ul class="columns-2 text-sm marker:text-gold"> <li>Python</li><li>Pandas</li><li>Scikit-learn</li><li>R</li> <li>SQL</li><li>NoSQL</li><li>MongoDB</li><li>Git</li> <li>Streamlit</li><li>Power BI</li><li>AWS Quicksight</li><li>Dataiku</li> <li>Excel</li><li>Google Analytics</li><li>HTML/CSS</li> </ul> </div> <div> <h2 class="text-2xl text-oldgold mb-4">Languages & Certifications</h2> <ul class="text-sm list-disc list-inside marker:text-gold"> <li>English: B2 spoken, C1 written – Italian: A2</li> <li>Neo4j Certified Professional</li> <li>SAS Visual Business Analytics Specialist</li> <li>Power BI – Microsoft Office (upcoming)</li> </ul> </div> </div> <!-- Projects --> <div class="mb-12"> <h2 class="text-2xl text-oldgold mb-4">Personal Projects</h2> <ul class="text-sm list-disc list-inside marker:text-gold"> <li><strong>DataBad</strong> — Match review app for badminton: scoreboard, point annotation, shot classification (ML), Streamlit & Flutter interfaces.</li> <li><strong>Budget Tracker</strong> — Personal finance tracker in Python/Streamlit: monthly budgets, secure CSV imports, 12-month trends, migration system.</li> <li><strong>QueryBot API</strong> — Internal Python API at Median to automate JIRA ticket creation: OAuth authentication, logging, multi-env management.</li> </ul> </div> <!-- Contact --> <div class="mb-4 flex flex-wrap gap-4 items-center"> <a href="/files/CV_PERZO_Killian_2025.pdf" download class="btn-primary">
+Download Resume (PDF)
+</a> <a href="mailto:killian.perzo@gmail.com" class="hover:underline">killian.perzo@gmail.com</a> <a href="https://www.linkedin.com/in/killian-perzo-24085417a" class="hover:underline" target="_blank">
+LinkedIn
+</a> </div> </section>  </main> <footer class="bg-charcoal text-slate text-sm mt-16"> <div class="max-w-7xl mx-auto px-4 py-8 flex flex-col sm:flex-row justify-between items-center gap-4"> <p class="text-center sm:text-left">&copy; 2026 Killian — All rights reserved.</p> <div class="flex flex-wrap justify-center sm:justify-end gap-4"> <a href="https://github.com/Unshaft" class="hover:text-gold transition-colors" target="_blank" rel="noopener noreferrer">
+GitHub
+</a> <a href="https://www.linkedin.com/in/killian-perzo-24085417a" class="hover:text-gold transition-colors" target="_blank" rel="noopener noreferrer">
+LinkedIn
+</a> <a href="mailto:killian.perzo@gmail.com" class="hover:text-gold transition-colors">
+Email
+</a> <a href="/en/contact" class="hover:text-gold transition-colors">
+Contact
+</a> </div> </div> </footer> <script type="module">
+      import Alpine from 'alpinejs';
+      window.Alpine = Alpine;
+      Alpine.start();
+    </script> </body> </html>

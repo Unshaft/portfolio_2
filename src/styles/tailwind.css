@@ -57,7 +57,7 @@
 
 @layer components {
   .nav-link {
-    @apply relative text-gray-700 hover:text-blue-600 transition duration-300;
+    @apply relative text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-gold transition duration-300;
   }
 
   .nav-link::after {
@@ -71,16 +71,20 @@
     transition: width 0.3s ease-in-out;
   }
 
+  .dark .nav-link::after {
+    background-color: theme('colors.gold');
+  }
+
   .nav-link:hover::after {
     width: 100%;
   }
 
   .lang-switch {
-    @apply flex items-center gap-1 text-sm text-gray-500 hover:text-blue-600 transition duration-300;
+    @apply flex items-center gap-1 text-sm text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-gold transition duration-300;
   }
 
   .logo {
-    @apply text-xl font-bold text-blue-600 hover:tracking-wide transition-all duration-300;
+    @apply text-xl font-bold text-blue-600 dark:text-gold hover:tracking-wide transition-all duration-300;
   }
 }
 .card-image-fade {

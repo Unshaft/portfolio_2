@@ -1,4 +1,6 @@
 ---
+import ThemeToggle from './ThemeToggle.astro';
+
 const url = new URL(Astro.request.url);
 const pathname = url.pathname;
 
@@ -17,44 +19,91 @@ const { lang = currentLang, altLangHref } = Astro.props;
 ---
 
 
-<nav class="w-full bg-white border-b border-gray-200 px-6 py-4 shadow-md">
+<nav class="w-full bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 px-4 sm:px-6 py-3 sm:py-4 shadow-md transition-colors duration-300 sticky top-0 z-50">
   <div class="max-w-7xl mx-auto flex items-center justify-between">
     <!-- Logo -->
-    <a href={`/${currentLang}/`} class="logo hover:tracking-wide transition-all duration-300">
-      <span class="text-blue-600">Killian</span><span class="text-gray-800">.dev</span>
+    <a href={`/${currentLang}/`} class="logo hover:tracking-wide transition-all duration-300 text-lg sm:text-xl">
+      <span class="text-blue-600 dark:text-gold">Killian</span><span class="text-gray-800 dark:text-gray-200">.dev</span>
     </a>
 
     <!-- Desktop menu -->
-    <div class="hidden md:flex items-center space-x-6 font-medium">
+    <div class="hidden md:flex items-center space-x-4 lg:space-x-6 font-medium">
       {navLinks.map(link => (
-        <a href={link.href} class="nav-link">{link.label}</a>
+        <a href={link.href} class="nav-link text-sm lg:text-base">{link.label}</a>
       ))}
 
       <!-- Langue -->
       <a href={altLangHref ?? `/${altLang}${pathname.replace(/^\/(fr|en)/, '')}`} class="lang-switch">
         {altLang === 'en' ? '🫖 EN' : '🥖 FR'}
       </a>
+
+      <!-- Dark Mode Toggle -->
+      <ThemeToggle />
     </div>
 
     <!-- Burger (mobile only) -->
-    <button
-      class="md:hidden flex items-center text-gray-600 focus:outline-none"
-      onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
-    >
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
-        viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M4 6h16M4 12h16M4 18h16"/>
-      </svg>
-    </button>
+    <div class="md:hidden flex items-center gap-2">
+      <ThemeToggle />
+      <button
+        id="burger-btn"
+        class="flex items-center justify-center w-10 h-10 text-gray-600 dark:text-gray-300 focus:outline-none rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+        aria-label="Menu"
+        aria-expanded="false"
+      >
+        <svg id="burger-icon" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+          viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2"
+          viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
   </div>
 
   <!-- Mobile menu -->
-  <div id="mobile-menu" class="md:hidden hidden mt-4 px-4 space-y-2">
-    {navLinks.map(link => (
-      <a href={link.href} class="block text-gray-700 hover:text-blue-600 transition">{link.label}</a>
-    ))}
-    <a href={altLangHref ?? `/${altLang}${pathname.replace(/^\/(fr|en)/, '')}`} class="lang-switch">
-      {altLang === 'en' ? '🫖 EN' : '🥖 FR'}
-    </a>
+  <div id="mobile-menu" class="md:hidden hidden mt-4 pb-4 border-t border-gray-200 dark:border-gray-700 pt-4 animate-fadeIn">
+    <div class="flex flex-col space-y-1">
+      {navLinks.map(link => (
+        <a
+          href={link.href}
+          class="block px-4 py-3 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-gold hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-colors"
+        >
+          {link.label}
+        </a>
+      ))}
+      <a
+        href={altLangHref ?? `/${altLang}${pathname.replace(/^\/(fr|en)/, '')}`}
+        class="block px-4 py-3 text-base font-medium text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-gold hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-colors"
+      >
+        {altLang === 'en' ? '🫖 English' : '🥖 Français'}
+      </a>
+    </div>
   </div>
 </nav>
+
+<script is:inline>
+  const burgerBtn = document.getElementById('burger-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const burgerIcon = document.getElementById('burger-icon');
+  const closeIcon = document.getElementById('close-icon');
+
+  burgerBtn?.addEventListener('click', () => {
+    const isOpen = !mobileMenu.classList.contains('hidden');
+    mobileMenu.classList.toggle('hidden');
+    burgerIcon.classList.toggle('hidden');
+    closeIcon.classList.toggle('hidden');
+    burgerBtn.setAttribute('aria-expanded', !isOpen);
+  });
+
+  // Fermer le menu quand on clique sur un lien
+  mobileMenu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      burgerIcon.classList.remove('hidden');
+      closeIcon.classList.add('hidden');
+      burgerBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>

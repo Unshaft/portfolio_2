@@ -1,0 +1,191 @@
+<!DOCTYPE html><html lang="en" class="scroll-smooth"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="color-scheme" content="light dark"><title>Portfolio Killian Perzo</title><!-- Prevent flash of wrong theme --><script>
+      if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
+    </script><!-- SEO Meta Tags --><meta name="description" content="Portfolio de Killian Perzo - Data Analyst &#38; Développeur Full-Stack. Découvrez mes projets en Python, Machine Learning, APIs et développement web."><meta name="author" content="Killian Perzo"><meta name="robots" content="index, follow"><link rel="canonical" href="https://killianperzo.dev/en/projects/budget-tracker_en/"><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="https://killianperzo.dev/en/projects/budget-tracker_en/"><meta property="og:title" content="Portfolio Killian Perzo"><meta property="og:description" content="Portfolio de Killian Perzo - Data Analyst &#38; Développeur Full-Stack. Découvrez mes projets en Python, Machine Learning, APIs et développement web."><meta property="og:image" content="https://killianperzo.dev/img/og-image.png"><meta property="og:locale" content="en_US"><!-- Twitter --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Portfolio Killian Perzo"><meta name="twitter:description" content="Portfolio de Killian Perzo - Data Analyst &#38; Développeur Full-Stack. Découvrez mes projets en Python, Machine Learning, APIs et développement web."><meta name="twitter:image" content="https://killianperzo.dev/img/og-image.png"><!-- Alternate language --><link rel="alternate" hreflang="fr" href="https://killianperzo.dev/fr/projects/budget-tracker_fr"><link rel="alternate" hreflang="en" href="https://killianperzo.dev/en/projects/budget-tracker_en/"><!-- Favicon --><link rel="icon" type="image/x-icon" href="/favicon/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"><!-- Preconnect for performance --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="/_astro/_slug_.DSVnlsir.css">
+<link rel="stylesheet" href="/_astro/_slug_.DnnLr-Xo.css"></head> <body class="bg-slate dark:bg-gray-900 text-charcoal dark:text-gray-100 flex flex-col min-h-screen transition-colors duration-300"> <nav class="w-full bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 px-4 sm:px-6 py-3 sm:py-4 shadow-md transition-colors duration-300 sticky top-0 z-50"> <div class="max-w-7xl mx-auto flex items-center justify-between"> <!-- Logo --> <a href="/en/" class="logo hover:tracking-wide transition-all duration-300 text-lg sm:text-xl"> <span class="text-blue-600 dark:text-gold">Killian</span><span class="text-gray-800 dark:text-gray-200">.dev</span> </a> <!-- Desktop menu --> <div class="hidden md:flex items-center space-x-4 lg:space-x-6 font-medium"> <a href="/en/" class="nav-link text-sm lg:text-base">Home</a><a href="/en/projects" class="nav-link text-sm lg:text-base">Projects</a><a href="/en/about" class="nav-link text-sm lg:text-base">About</a><a href="/en/cv" class="nav-link text-sm lg:text-base">CV</a><a href="/en/contact" class="nav-link text-sm lg:text-base">Contact</a> <!-- Langue --> <a href="/fr/projects/budget-tracker_fr" class="lang-switch"> 🥖 FR </a> <!-- Dark Mode Toggle --> <button id="theme-toggle" type="button" class="p-2 rounded-lg text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-700 transition-colors" aria-label="Toggle dark mode"> <!-- Icone Soleil (visible en dark mode) --> <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path> </svg> <!-- Icone Lune (visible en light mode) --> <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path> </svg> </button> <script>
+  // Récupérer le thème stocké ou préférence système
+  function getTheme() {
+    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+      return localStorage.getItem('theme');
+    }
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark';
+    }
+    return 'light';
+  }
+
+  // Appliquer le thème
+  function setTheme(theme) {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    localStorage.setItem('theme', theme);
+    updateIcons(theme);
+  }
+
+  // Mettre à jour les icônes
+  function updateIcons(theme) {
+    const lightIcon = document.getElementById('theme-toggle-light-icon');
+    const darkIcon = document.getElementById('theme-toggle-dark-icon');
+
+    if (lightIcon && darkIcon) {
+      if (theme === 'dark') {
+        lightIcon.classList.remove('hidden');
+        darkIcon.classList.add('hidden');
+      } else {
+        lightIcon.classList.add('hidden');
+        darkIcon.classList.remove('hidden');
+      }
+    }
+  }
+
+  // Initialisation
+  const initialTheme = getTheme();
+  setTheme(initialTheme);
+
+  // Event listener pour le toggle
+  document.getElementById('theme-toggle')?.addEventListener('click', () => {
+    const currentTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+  });
+</script> </div> <!-- Burger (mobile only) --> <div class="md:hidden flex items-center gap-2"> <button id="theme-toggle" type="button" class="p-2 rounded-lg text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-700 transition-colors" aria-label="Toggle dark mode"> <!-- Icone Soleil (visible en dark mode) --> <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path> </svg> <!-- Icone Lune (visible en light mode) --> <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path> </svg> </button> <script>
+  // Récupérer le thème stocké ou préférence système
+  function getTheme() {
+    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+      return localStorage.getItem('theme');
+    }
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark';
+    }
+    return 'light';
+  }
+
+  // Appliquer le thème
+  function setTheme(theme) {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    localStorage.setItem('theme', theme);
+    updateIcons(theme);
+  }
+
+  // Mettre à jour les icônes
+  function updateIcons(theme) {
+    const lightIcon = document.getElementById('theme-toggle-light-icon');
+    const darkIcon = document.getElementById('theme-toggle-dark-icon');
+
+    if (lightIcon && darkIcon) {
+      if (theme === 'dark') {
+        lightIcon.classList.remove('hidden');
+        darkIcon.classList.add('hidden');
+      } else {
+        lightIcon.classList.add('hidden');
+        darkIcon.classList.remove('hidden');
+      }
+    }
+  }
+
+  // Initialisation
+  const initialTheme = getTheme();
+  setTheme(initialTheme);
+
+  // Event listener pour le toggle
+  document.getElementById('theme-toggle')?.addEventListener('click', () => {
+    const currentTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+  });
+</script> <button id="burger-btn" class="flex items-center justify-center w-10 h-10 text-gray-600 dark:text-gray-300 focus:outline-none rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Menu" aria-expanded="false"> <svg id="burger-icon" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"> <path d="M4 6h16M4 12h16M4 18h16"></path> </svg> <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"> <path d="M6 18L18 6M6 6l12 12"></path> </svg> </button> </div> </div> <!-- Mobile menu --> <div id="mobile-menu" class="md:hidden hidden mt-4 pb-4 border-t border-gray-200 dark:border-gray-700 pt-4 animate-fadeIn"> <div class="flex flex-col space-y-1"> <a href="/en/" class="block px-4 py-3 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-gold hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-colors"> Home </a><a href="/en/projects" class="block px-4 py-3 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-gold hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-colors"> Projects </a><a href="/en/about" class="block px-4 py-3 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-gold hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-colors"> About </a><a href="/en/cv" class="block px-4 py-3 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-gold hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-colors"> CV </a><a href="/en/contact" class="block px-4 py-3 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-gold hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-colors"> Contact </a> <a href="/fr/projects/budget-tracker_fr" class="block px-4 py-3 text-base font-medium text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-gold hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-colors"> 🥖 Français </a> </div> </div> </nav> <script>
+  const burgerBtn = document.getElementById('burger-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const burgerIcon = document.getElementById('burger-icon');
+  const closeIcon = document.getElementById('close-icon');
+
+  burgerBtn?.addEventListener('click', () => {
+    const isOpen = !mobileMenu.classList.contains('hidden');
+    mobileMenu.classList.toggle('hidden');
+    burgerIcon.classList.toggle('hidden');
+    closeIcon.classList.toggle('hidden');
+    burgerBtn.setAttribute('aria-expanded', !isOpen);
+  });
+
+  // Fermer le menu quand on clique sur un lien
+  mobileMenu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      burgerIcon.classList.remove('hidden');
+      closeIcon.classList.add('hidden');
+      burgerBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script> <main class="flex-1 w-full max-w-6xl mx-auto px-4 py-12">  <section class="max-w-3xl mx-auto py-12"> <h1 class="text-4xl font-bold text-charcoal mb-6">Budget Tracker</h1> <p class="text-gray-600 mb-6">An interactive dashboard to track income, expenses, and monthly balances.</p> <img src="/img/screen_dashboard_1.png" alt="Budget Tracker" class="mb-6 rounded shadow"> <ul class="flex flex-wrap gap-2 text-sm text-white mb-6"> <li class="bg-charcoal px-3 py-1 rounded">Python</li><li class="bg-charcoal px-3 py-1 rounded">Pandas</li><li class="bg-charcoal px-3 py-1 rounded">Streamlit</li><li class="bg-charcoal px-3 py-1 rounded">SQLite</li> </ul> <article class="prose prose-slate max-w-none prose-headings:font-semibold prose-img:rounded prose-a:text-gold"><h2>🧩 Context</h2>
+<p>This project was born from a very real need: to better understand where our shared household money was going.<br>I didn’t want to rely on third-party banking apps (often paid or too rigid), so I decided to create <strong>my own solution</strong>, built to last and evolve with our habits.</p>
+<p>I wanted something local, personalized, easy to use — yet powerful enough to provide true <strong>financial visibility</strong>.</p>
+<hr>
+<h2>⚙️ Features</h2>
+<ul>
+<li><strong>Secure import</strong> of CSV files from our bank</li>
+<li><strong>Manual entry</strong> of one-off transactions</li>
+<li><strong>Full history</strong> of 400+ transactions</li>
+<li><strong>Duplicate detection</strong> using a unique identifier (title + date + amount)</li>
+<li><strong>Spending and balance analysis</strong> by category and period</li>
+<li><strong>Automatic budget suggestions</strong> for upcoming months</li>
+<li><strong>Validation and reconciliation system</strong> for transactions</li>
+<li><strong>Data archiving</strong> to prevent accidental loss</li>
+</ul>
+<hr>
+<h2>🖥️ App structure</h2>
+<p>The app is built around five core modules:</p>
+<ol>
+<li><strong>Dashboard</strong>: overview of key indicators (balance, income, expenses, alerts…)</li>
+<li><strong>CSV Import</strong>: secure parsing of bank exports</li>
+<li><strong>Budget Proposal</strong>: smart allocation of future expenses</li>
+<li><strong>Graphical Analysis</strong>: interactive charts and spending breakdowns</li>
+<li><strong>Transaction Editor</strong>: browse, update, categorize entries</li>
+</ol>
+<hr>
+<h2>🧠 Tech stack</h2>
+<ul>
+<li><strong>Python + Streamlit</strong>: for a lightweight and intuitive user interface</li>
+<li><strong>SQLite + SQLAlchemy</strong>: fast, reliable local database</li>
+<li><strong>Plotly</strong>: dynamic, interactive data visualizations</li>
+<li>Custom Streamlit components for advanced layout and navigation</li>
+</ul>
+<hr>
+<h2>🎯 Real-world impact</h2>
+<p>I use Budget Tracker <strong>every week</strong> to stay on top of our finances.<br>It helps me:</p>
+<ul>
+<li>anticipate expenses and balance our monthly charges</li>
+<li>spot patterns or unexpected spending categories</li>
+<li>make more informed, confident financial decisions</li>
+</ul>
+<p>It has caught the interest of my partner and my family.<br>I’m currently working on deploying it to a <strong>local Raspberry Pi server</strong>, so we can use it together at home.</p>
+<hr>
+<h2>📸 Preview</h2>
+<p><img src="/img/project_1/Page_1.png" alt="Dashboard Screenshot"></p>
+<hr>
+<h2>🔗 Resources</h2>
+<ul>
+<li><a href="https://github.com/unshaft/budget-tracker">View the code on GitHub</a></li>
+</ul>
+</article> <p class="mt-8"> <a href="https://github.com/your-user/dashboard-project" target="_blank" rel="noopener" class="text-gold hover:underline">
+GitHub ↗
+</a> </p> </section>  </main> <footer class="bg-charcoal text-slate text-sm mt-16"> <div class="max-w-7xl mx-auto px-4 py-8 flex flex-col sm:flex-row justify-between items-center gap-4"> <p class="text-center sm:text-left">&copy; 2026 Killian — All rights reserved.</p> <div class="flex flex-wrap justify-center sm:justify-end gap-4"> <a href="https://github.com/Unshaft" class="hover:text-gold transition-colors" target="_blank" rel="noopener noreferrer">
+GitHub
+</a> <a href="https://www.linkedin.com/in/killian-perzo-24085417a" class="hover:text-gold transition-colors" target="_blank" rel="noopener noreferrer">
+LinkedIn
+</a> <a href="mailto:killian.perzo@gmail.com" class="hover:text-gold transition-colors">
+Email
+</a> <a href="/en/contact" class="hover:text-gold transition-colors">
+Contact
+</a> </div> </div> </footer> <script type="module">
+      import Alpine from 'alpinejs';
+      window.Alpine = Alpine;
+      Alpine.start();
+    </script> </body> </html>

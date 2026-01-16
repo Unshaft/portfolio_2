@@ -3,27 +3,84 @@ import Navbar from "../components/Navbar.astro";
 import '../styles/tailwind.css';
 import Footer from '../components/Footer.astro';
 import SpeedInsights from "../components/SpeedInsights.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+  lang?: 'fr' | 'en';
+  altLangHref?: string;
+  ogImage?: string;
+}
+
+const {
+  title = "Killian Perzo - Data Analyst & Développeur",
+  description = "Portfolio de Killian Perzo - Data Analyst & Développeur Full-Stack. Spécialisé en Python, Machine Learning, APIs et développement web.",
+  lang = "fr",
+  altLangHref,
+  ogImage = "/img/og-image.png"
+} = Astro.props;
+
+const siteUrl = "https://killianperzo.dev";
+const canonicalURL = new URL(Astro.url.pathname, siteUrl);
 ---
 
-<html lang="en">
+<html lang={lang} class="scroll-smooth">
   <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Portfolio Killian</title>
+      <meta name="color-scheme" content="light dark" />
+      <title>{title}</title>
 
-      
+      <!-- Prevent flash of wrong theme -->
+      <script is:inline>
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        }
+      </script>
+
+      <!-- SEO Meta Tags -->
+      <meta name="description" content={description} />
+      <meta name="author" content="Killian Perzo" />
+      <meta name="robots" content="index, follow" />
+      <link rel="canonical" href={canonicalURL} />
+
+      <!-- Open Graph / Facebook -->
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content={canonicalURL} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:image" content={`${siteUrl}${ogImage}`} />
+      <meta property="og:locale" content={lang === 'fr' ? 'fr_FR' : 'en_US'} />
+
+      <!-- Twitter -->
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={`${siteUrl}${ogImage}`} />
+
+      <!-- Alternate language -->
+      {altLangHref && (
+        <link rel="alternate" hreflang={lang === 'fr' ? 'en' : 'fr'} href={`${siteUrl}${altLangHref}`} />
+      )}
+      <link rel="alternate" hreflang={lang} href={canonicalURL} />
+
+      <!-- Favicon -->
       <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
 
-      <!-- Option : favicon alternatif -->
-      <!-- <link rel="icon" type="image/png" href="/favicon/favicon-transparent.png" /> -->
+      <!-- Preconnect for performance -->
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   </head>
   
     
-    <body class="bg-slate text-charcoal flex flex-col h-screen overflow-hidden">
+    <body class="bg-slate dark:bg-gray-900 text-charcoal dark:text-gray-100 flex flex-col h-screen overflow-hidden transition-colors duration-300">
       <Navbar />
-      
+
       <main class="flex-1 flex justify-center items-center overflow-hidden">
-        <div id="scroll-frame" class="w-full max-w-5xl h-full overflow-y-auto snap-y snap-mandatory scroll-smooth scrollbar-hide rounded-xl border bg-white shadow-lg">
+        <div id="scroll-frame" class="w-full max-w-5xl h-full overflow-y-auto snap-y snap-mandatory scroll-smooth scrollbar-hide rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-lg transition-colors duration-300">
           <slot />
         </div>
       </main>

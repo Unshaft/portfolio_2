@@ -3,31 +3,36 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout>
-  <section class="max-w-3xl mx-auto py-16">
-    <h1 class="text-4xl font-bold text-charcoal mb-6">À propos</h1>
+<BaseLayout
+  lang="fr"
+  altLangHref="/en/about"
+  title="À propos - Killian Perzo"
+  description="Découvrez mon parcours : Data Analyst chez Median Technologies, passionné de data, sport et création. Créateur de DataBad et projets open-source."
+>
+  <section class="max-w-3xl mx-auto py-8 sm:py-16 px-4 sm:px-0">
+    <h1 class="text-2xl sm:text-4xl font-bold text-charcoal dark:text-white mb-4 sm:mb-6">À propos</h1>
 
-    <p class="text-lg text-gray-800 leading-relaxed mb-6">
-      Salut, moi c’est <strong>Killian</strong> — un passionné de <span class="text-gold font-semibold">data</span>, de <span class="text-gold font-semibold">sport</span> et de <span class="text-gold font-semibold">création</span>.
+    <p class="text-base sm:text-lg text-gray-800 dark:text-gray-200 leading-relaxed mb-4 sm:mb-6">
+      Salut, moi c'est <strong>Killian</strong> — un passionné de <span class="text-gold font-semibold">data</span>, de <span class="text-gold font-semibold">sport</span> et de <span class="text-gold font-semibold">création</span>.
     </p>
 
-    <p class="text-gray-700 mb-4">
-      Après un parcours en STAPS puis un BUT Science des Données, j’ai poursuivi avec un master en Data Analyse que je termine fin 2025. Je travaille actuellement chez <strong>Median Technologies</strong>, où j’ai pu développer des projets concrets autour de l’imagerie médicale et du machine learning.
+    <p class="text-sm sm:text-base text-gray-700 dark:text-gray-300 mb-3 sm:mb-4">
+      Après un parcours en STAPS puis un BUT Science des Données, j'ai poursuivi avec un master en Data Analyse que je termine fin 2025. Je travaille actuellement chez <strong class="text-charcoal dark:text-white">Median Technologies</strong>, où j'ai pu développer des projets concrets autour de l'imagerie médicale et du machine learning.
     </p>
 
-    <p class="text-gray-700 mb-4">
+    <p class="text-sm sm:text-base text-gray-700 dark:text-gray-300 mb-3 sm:mb-4">
       Mon profil est hybride : je touche à la data analyse, à la visualisation, au développement back-end, au machine learning, et même à un peu de dev mobile et domotique.
     </p>
 
-    <p class="text-gray-700 mb-4">
-      Côté projets perso, je développe <strong>DataBad</strong> — une app complète pour analyser les matchs de badminton, mon sport de cœur, grâce à la data. Je suis aussi en train de créer un <strong>portfolio open-source</strong> orienté data et j’aime rendre mes outils utiles, propres, et scalables.
+    <p class="text-sm sm:text-base text-gray-700 dark:text-gray-300 mb-3 sm:mb-4">
+      Côté projets perso, je développe <strong class="text-charcoal dark:text-white">DataBad</strong> — une app complète pour analyser les matchs de badminton, mon sport de cœur, grâce à la data. Je suis aussi en train de créer un <strong class="text-charcoal dark:text-white">portfolio open-source</strong> orienté data et j'aime rendre mes outils utiles, propres, et scalables.
     </p>
 
-    <p class="text-gray-700 mb-8">
-      Mon objectif ? Travailler sur des projets à fort impact, où la donnée est mise au service de l’humain. Je cherche un poste hybride où je pourrais mêler analyse, ingénierie, développement produit et collaboration.
+    <p class="text-sm sm:text-base text-gray-700 dark:text-gray-300 mb-6 sm:mb-8">
+      Mon objectif ? Travailler sur des projets à fort impact, où la donnée est mise au service de l'humain. Je cherche un poste hybride où je pourrais mêler analyse, ingénierie, développement produit et collaboration.
     </p>
 
-    <a href="/contact" class="inline-block bg-gold text-white px-6 py-3 rounded hover:bg-yellow-600 transition">
+    <a href="/fr/contact" class="inline-block w-full sm:w-auto text-center bg-gold text-white px-6 py-3 rounded-lg hover:bg-oldgold transition active:scale-95 font-medium">
       Me contacter →
     </a>
   </section>
