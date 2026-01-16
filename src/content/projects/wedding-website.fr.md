@@ -2,10 +2,10 @@
 title: "Site Web Mariage"
 slug: "wedding-website_fr"
 locale: "fr"
-description: "Un site web moderne et élégant pour notre mariage, avec gestion des RSVP, informations pratiques et galerie photos."
-stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel"]
+description: "Application web complète pour notre mariage : RSVP personnalisé par famille, galerie photos avec modération, dashboard admin, exports Excel et mode PWA offline."
+stack: ["Next.js 15", "React 19", "TypeScript", "Prisma", "SQLite", "Tailwind CSS", "Sharp"]
 image: "/img/wedding-website/preview.png"
-tag: ["En cours"]
+tag: ["À la une"]
 translationOf: "wedding-website"
 category: "perso"
 startDate: "2025-10-01"
@@ -14,66 +14,115 @@ updatedDate: "2026-01-16"
 
 ## 🧩 Contexte
 
-Organiser un mariage implique de communiquer de nombreuses informations aux invités : date, lieu, hébergement, dress code, menus... Plutôt que d'envoyer des dizaines de messages, j'ai décidé de créer un **site web dédié** qui centralise tout.
+Organiser un mariage implique de gérer les RSVPs de dizaines de familles, chacune avec ses préférences alimentaires et contraintes. Plutôt qu'un simple formulaire Google, j'ai créé une **application web complète** avec authentification par token, dashboard admin et mode offline.
 
-Ce projet m'a permis d'explorer **Next.js** et de créer une expérience utilisateur soignée pour un événement personnel et important.
+Ce projet démontre ma capacité à concevoir une **application production-ready** de A à Z.
 
 ---
 
-## ⚙️ Fonctionnalités
+## 🏗️ Architecture
 
-- **Page d'accueil** avec countdown jusqu'au jour J
-- **Système RSVP** : confirmation de présence avec choix de menu
-- **Informations pratiques** : lieu de la cérémonie, réception, hébergements recommandés
-- **Galerie photos** : souvenirs et photos de couple
-- **FAQ** : réponses aux questions fréquentes des invités
-- **Design responsive** adapté mobile, tablette et desktop
+```
+Next.js 15 App Router
+├── Pages publiques (accueil, programme, infos, galerie)
+├── RSVP personnalisé (/rsvp/[token])
+├── Admin Dashboard (/admin/*)
+└── API RESTful (15+ endpoints)
+```
+
+**Base de données :** Prisma ORM + SQLite (6 modèles)
+**Déploiement :** Raspberry Pi 4 (standalone output)
+
+---
+
+## ⚙️ Fonctionnalités principales
+
+### Pages publiques
+- **Hero** avec countdown dynamique (seconde par seconde)
+- **Programme** : déroulement de la journée
+- **Infos pratiques** : hébergement, accès, dress code
+- **Galerie photos** : upload par invités avec modération
+
+### Système RSVP personnalisé
+- **Token JWT unique** par famille (6 mois d'expiration)
+- **Photo et message** personnalisés par famille
+- Saisie par invité : présence, restrictions, allergies, besoins spéciaux
+- **Email de confirmation** automatique
+- Rate limiting (5 soumissions/heure max)
+
+### Interface Admin complète
+- **Dashboard** : 4 graphiques recharts (statuts, présence, adultes/enfants)
+- **Gestion familles** : CRUD complet + import batch photos
+- **Suivi RSVP** : tableau détaillé + 3 exports Excel
+- **Modération photos** : approve/reject workflow
+- **Envoi invitations** : email individuel ou en masse avec QR code
 
 ---
 
 ## 🧠 Stack technique
 
-- **Next.js 14** : framework React avec App Router
-- **React** : composants interactifs et réutilisables
-- **TypeScript** : typage strict pour la fiabilité du code
-- **Tailwind CSS** : design moderne et personnalisable
-- **Vercel** : déploiement et hébergement
+| Composant | Technologie |
+|-----------|-------------|
+| Framework | **Next.js 15** (App Router) |
+| UI | **React 19** + **Tailwind CSS** |
+| Base de données | **Prisma** + **SQLite** |
+| Auth | **JWT (jose)** + **bcryptjs** |
+| Images | **Sharp** (compression 1920px, 85%) |
+| Email | **Nodemailer** (SMTP) |
+| Graphiques | **Recharts** |
+| Export | **xlsx** (3 formats Excel) |
+| Validation | **Zod** (schémas stricts) |
 
 ---
 
-## 🎨 Design
+## 🔐 Sécurité en profondeur
 
-Le site adopte une esthétique **épurée et romantique** :
-
-- Palette de couleurs douce et élégante
-- Typographies soignées (serif pour les titres, sans-serif pour le corps)
-- Animations subtiles au scroll
-- Images optimisées pour un chargement rapide
-
----
-
-## 🔐 Gestion des RSVP
-
-Le système de RSVP permet aux invités de :
-
-1. Confirmer leur présence
-2. Indiquer le nombre de personnes
-3. Choisir leur menu (régime alimentaire, allergies)
-4. Laisser un message aux mariés
-
-Les réponses sont stockées et facilement exportables pour l'organisation.
+- **Rate limiting** multi-couches (upload, RSVP, login admin)
+- **Validation magic bytes** pour les images (anti-malware)
+- **XSS prevention** + sanitization HTML
+- **Headers sécurité** : CSP, HSTS, X-Frame-Options
+- **JWT signés** avec expiration configurable
+- **Mots de passe bcrypt** (cost 10)
 
 ---
 
-## 🚧 Statut
+## 📱 PWA & Mode Offline
 
-Le site est actuellement **en développement** et sera ouvert aux invités prochainement.
+- **Installation** sur écran d'accueil (iOS/Android)
+- **Service Worker** : stratégie Network-First
+- Pages visitées **disponibles offline**
+- Actualisation automatique toutes les heures
 
 ---
 
-## 🎯 Ce que j'ai appris
+## 📊 Exports & Statistiques
 
-- Architecture d'une application Next.js avec App Router
-- Gestion de formulaires complexes en React
-- Optimisation des performances (images, fonts, lazy loading)
-- Déploiement continu avec Vercel
+| Export | Usage |
+|--------|-------|
+| RSVP complet | Vue d'ensemble |
+| Invités présents | Pour le traiteur |
+| Statistiques | Analyse globale |
+
+---
+
+## 🎨 Design personnalisé
+
+Thème centralisé aux couleurs du mariage :
+- **Rose poudré** : #f4e1e0
+- **Vert sauge** : #768064
+- **Beige sable** : #e0d4c7
+
+Optimisations mobile :
+- Boutons tactiles ≥44x44px
+- Navigation responsive
+- Images lazy loading (8 eager, reste lazy)
+
+---
+
+## 🔗 Points techniques clés
+
+- **15+ endpoints API** RESTful
+- **6 modèles Prisma** (Family, Guest, RSVP, RSVPResponse, Photo, Admin)
+- **3 templates email** HTML personnalisés
+- **Compression Sharp** automatique (1920x1920, JPEG progressif)
+- **QR codes** générés dynamiquement

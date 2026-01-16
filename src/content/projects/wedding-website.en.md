@@ -2,10 +2,10 @@
 title: "Wedding Website"
 slug: "wedding-website_en"
 locale: "en"
-description: "A modern and elegant website for our wedding, featuring RSVP management, practical information and photo gallery."
-stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel"]
+description: "Full-stack wedding web app: personalized family RSVP, photo gallery with moderation, admin dashboard, Excel exports and offline PWA mode."
+stack: ["Next.js 15", "React 19", "TypeScript", "Prisma", "SQLite", "Tailwind CSS", "Sharp"]
 image: "/img/wedding-website/preview.png"
-tag: ["In Progress"]
+tag: ["Featured"]
 translationOf: "wedding-website"
 category: "perso"
 startDate: "2025-10-01"
@@ -14,66 +14,120 @@ updatedDate: "2026-01-16"
 
 ## 🧩 Context
 
-Organizing a wedding involves communicating a lot of information to guests: date, venue, accommodation, dress code, menus... Rather than sending dozens of messages, I decided to create a **dedicated website** that centralizes everything.
+Organizing a wedding means managing RSVPs from dozens of families, each with their own dietary preferences and constraints. Rather than a simple Google Form, I built a **complete web application** with token-based authentication, admin dashboard and offline mode.
 
-This project allowed me to explore **Next.js** and create a polished user experience for a personal and meaningful event.
+This project demonstrates my ability to design a **production-ready application** from scratch.
 
 ---
 
-## ⚙️ Features
+## 🏗️ Architecture
 
-- **Homepage** with countdown to the big day
-- **RSVP system**: attendance confirmation with menu selection
-- **Practical information**: ceremony location, reception, recommended accommodations
-- **Photo gallery**: memories and couple photos
-- **FAQ**: answers to frequently asked guest questions
-- **Responsive design** adapted for mobile, tablet and desktop
+```text
+Next.js 15 App Router
+├── Public pages (home, schedule, info, gallery)
+├── Personalized RSVP (/rsvp/[token])
+├── Admin Dashboard (/admin/*)
+└── RESTful API (15+ endpoints)
+```
+
+**Database:** Prisma ORM + SQLite (6 models)
+**Deployment:** Raspberry Pi 4 (standalone output)
+
+---
+
+## ⚙️ Key Features
+
+### Public Pages
+
+- **Hero** with live countdown (updates every second)
+- **Schedule**: wedding day timeline
+- **Practical info**: accommodation, access, dress code
+- **Photo gallery**: guest uploads with moderation
+
+### Personalized RSVP System
+
+- **Unique JWT token** per family (6-month expiration)
+- **Custom photo and message** per family
+- Per-guest input: attendance, restrictions, allergies, special needs
+- **Automatic confirmation email**
+- Rate limiting (5 submissions/hour max)
+
+### Complete Admin Interface
+
+- **Dashboard**: 4 recharts graphs (status, attendance, adults/children)
+- **Family management**: full CRUD + batch photo import
+- **RSVP tracking**: detailed table + 3 Excel exports
+- **Photo moderation**: approve/reject workflow
+- **Send invitations**: individual or bulk email with QR code
 
 ---
 
 ## 🧠 Tech Stack
 
-- **Next.js 14**: React framework with App Router
-- **React**: interactive and reusable components
-- **TypeScript**: strict typing for code reliability
-- **Tailwind CSS**: modern and customizable design
-- **Vercel**: deployment and hosting
+| Component | Technology |
+| --------- | ---------- |
+| Framework | **Next.js 15** (App Router) |
+| UI | **React 19** + **Tailwind CSS** |
+| Database | **Prisma** + **SQLite** |
+| Auth | **JWT (jose)** + **bcryptjs** |
+| Images | **Sharp** (1920px compression, 85%) |
+| Email | **Nodemailer** (SMTP) |
+| Charts | **Recharts** |
+| Export | **xlsx** (3 Excel formats) |
+| Validation | **Zod** (strict schemas) |
 
 ---
 
-## 🎨 Design
+## 🔐 Security in Depth
 
-The site adopts a **clean and romantic** aesthetic:
-
-- Soft and elegant color palette
-- Carefully chosen typography (serif for headings, sans-serif for body)
-- Subtle scroll animations
-- Optimized images for fast loading
-
----
-
-## 🔐 RSVP Management
-
-The RSVP system allows guests to:
-
-1. Confirm their attendance
-2. Indicate the number of people
-3. Choose their menu (dietary requirements, allergies)
-4. Leave a message for the couple
-
-Responses are stored and easily exportable for organization.
+- **Multi-layer rate limiting** (upload, RSVP, admin login)
+- **Magic bytes validation** for images (anti-malware)
+- **XSS prevention** + HTML sanitization
+- **Security headers**: CSP, HSTS, X-Frame-Options
+- **Signed JWTs** with configurable expiration
+- **bcrypt passwords** (cost 10)
 
 ---
 
-## 🚧 Status
+## 📱 PWA & Offline Mode
 
-The site is currently **under development** and will be opened to guests soon.
+- **Install** on home screen (iOS/Android)
+- **Service Worker**: Network-First strategy
+- Visited pages **available offline**
+- Auto-refresh every hour
 
 ---
 
-## 🎯 What I Learned
+## 📊 Exports & Statistics
 
-- Next.js application architecture with App Router
-- Complex form management in React
-- Performance optimization (images, fonts, lazy loading)
-- Continuous deployment with Vercel
+| Export | Purpose |
+| ------ | ------- |
+| Full RSVP | Overview |
+| Attending guests | For caterer |
+| Statistics | Global analysis |
+
+---
+
+## 🎨 Custom Design
+
+Centralized theme with wedding colors:
+
+- **Powder pink**: #f4e1e0
+- **Sage green**: #768064
+- **Sand beige**: #e0d4c7
+
+Mobile optimizations:
+
+- Touch targets ≥44x44px
+- Responsive navigation
+- Lazy loading images (8 eager, rest lazy)
+
+---
+
+## 🔗 Technical Highlights
+
+- **15+ RESTful API endpoints**
+- **6 Prisma models** (Family, Guest, RSVP, RSVPResponse, Photo, Admin)
+- **3 custom HTML email templates**
+- **Automatic Sharp compression** (1920x1920, progressive JPEG)
+- **Dynamically generated QR codes**
