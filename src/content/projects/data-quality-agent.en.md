@@ -2,8 +2,8 @@
 title: "Data Quality Agent"
 slug: "data-quality-agent_en"
 locale: "en"
-description: "An intelligent LLM-based agent to automatically validate, analyze and clean your datasets using LangChain."
-stack: ["Python", "LangChain", "OpenAI", "Pandas", "Pydantic"]
+description: "Intelligent data validation pipeline combining business rules and LLM (Claude) with RAG architecture for automated ACCEPT/WARNING/REJECT decisions."
+stack: ["Python", "LangGraph", "LangChain", "Claude API", "ChromaDB", "Pandas"]
 image: "/img/data-quality-agent/preview.png"
 github: "https://github.com/unshaft/data-quality-agent"
 tag: ["Featured"]
@@ -15,63 +15,90 @@ updatedDate: "2026-01-16"
 
 ## 🧩 Context
 
-Data quality is a critical challenge in any data project. Rather than spending hours writing manual validation rules, I wanted to leverage the power of **Large Language Models** to create an agent capable of automatically analyzing, validating, and cleaning datasets.
+Data quality is a critical challenge in any data project. Rather than writing static validation rules, I created an **intelligent agent** that combines documented business rules with the power of **LLMs** to make contextual decisions.
 
-This project combines my passion for **data engineering** with my growing interest in **AI agents** and the LangChain framework.
+This project demonstrates my expertise in **modern AI agents** with LangGraph and **RAG** (Retrieval-Augmented Generation) architecture.
 
 ---
 
-## ⚙️ Features
+## 🏗️ 3-Layer Architecture
 
-- **Automatic analysis** of dataset structure and content
-- **Smart detection** of anomalies, missing values, and inconsistencies
-- **Cleaning suggestions** based on business context
-- **Schema validation** with Pydantic to ensure data integrity
-- **Quality reports** generated automatically
-- **Conversational interface** to query the agent about your data
+The pipeline follows a modular architecture:
+
+```text
+📊 Profiling → 🔍 RAG → 🤖 Agent → ✅ Decision
+```
+
+1. **Profiling**: Complete statistical analysis of the dataset (types, nulls, distributions, outliers)
+2. **RAG Layer**: Contextual retrieval of relevant business rules via ChromaDB
+3. **Agent Layer**: Final decision with LangGraph orchestrating the reasoning
+
+---
+
+## 🔀 Two Validation Modes
+
+### V1 - Rules Mode (fast & free)
+
+- Validation based on **10 documented business rules** (DQ-01 to DQ-10)
+- No API calls, instant execution
+- Perfect for CI/CD and large volumes
+
+### V2 - LLM Mode (intelligent & adaptive)
+
+- **Claude (Anthropic)** for contextual analysis
+- **ChromaDB** + sentence-transformers for RAG
+- Complex anomaly detection and smart suggestions
+- Nuanced decisions based on business context
+
+---
+
+## ⚙️ Key Features
+
+- **Automated decisions**: ACCEPT ✅ / WARNING ⚠️ / REJECT ❌
+- **Batch processing**: Validate multiple files in parallel
+- **30+ unit tests**: Complete coverage with pytest
+- **Visual reports**: JSON and HTML export with detailed metrics
+- **10 quality rules**: From DQ-01 (null values) to DQ-10 (date format)
+- **Extensible architecture**: Easy addition of new rules
 
 ---
 
 ## 🧠 Tech Stack
 
-- **Python**: main language
-- **LangChain**: agent orchestration and prompt chains
-- **OpenAI API**: language model for intelligent analysis
-- **Pandas**: data manipulation and transformation
-- **Pydantic**: schema validation and strict typing
+| Component | Technology |
+| --------- | ---------- |
+| Orchestration | **LangGraph** |
+| LLM Chains | **LangChain** |
+| AI Model | **Claude (Anthropic)** |
+| Vector Store | **ChromaDB** |
+| Embeddings | **sentence-transformers** |
+| Data | **Pandas**, **NumPy** |
+| Tests | **pytest** (30+ tests) |
 
 ---
 
-## 🔄 Architecture
+## 📋 Quality Rules (excerpt)
 
-The agent works in several stages:
-
-1. **Ingestion**: loading the dataset (CSV, JSON, Parquet)
-2. **Profiling**: statistical analysis and type detection
-3. **Validation**: business rule verification via the LLM
-4. **Cleaning**: automatic suggestions and corrections
-5. **Report**: quality summary generation
+| Code | Rule | Threshold |
+| ---- | ---- | --------- |
+| DQ-01 | Null values | < 5% per column |
+| DQ-02 | Duplicates | 0 duplicate rows |
+| DQ-03 | Consistent types | 100% compliance |
+| DQ-05 | Outliers | < 1% per numeric column |
+| DQ-10 | Date format | ISO 8601 required |
 
 ---
 
 ## 🎯 Use Cases
 
-- Data preparation before ML modeling
-- Quality control of CSV files received from partners
-- Audit of existing databases
-- Automatic dataset documentation
-
----
-
-## 🚧 Planned Improvements
-
-- Support for additional data sources (SQL, APIs)
-- Web interface with Streamlit or Gradio
-- Integration with data pipelines (Airflow, Prefect)
-- Batch mode for processing large volumes
+- **Data Engineering**: Automatic validation in ETL pipelines
+- **CI/CD**: Quality gate before data deployment
+- **Audit**: Compliance reports for partner datasets
+- **ML Ops**: Training data quality control
 
 ---
 
 ## 🔗 Resources
 
-- [View the code on GitHub](https://github.com/unshaft/data-quality-agent)
+- [Source code on GitHub](https://github.com/unshaft/data-quality-agent)
+- Rules documentation: `rules/dq_rules.md`
