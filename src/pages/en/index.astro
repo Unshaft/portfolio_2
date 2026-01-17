@@ -1,17 +1,21 @@
 ---
-import IndexLayout from '../../layouts/IndexLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import DotNavigation from '../../components/DotNavigation.jsx';
+import { getCategoryStyle } from '../../lib/constants';
 
 const allProjects = await getCollection('projects');
-const projects = allProjects.filter(p => p.data.locale === 'en');
+const projects = allProjects
+  .filter(p => p.data.locale === 'en')
+  .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
 ---
 
-<IndexLayout
+<BaseLayout
   lang="en"
   altLangHref="/fr"
   title="Killian Perzo - Data Analyst & Full-Stack Developer"
   description="Killian Perzo's Portfolio. Discover my projects in Python, Machine Learning, REST APIs and web development. Passionate Data Analyst and creator of DataBad."
+  scrollMode="snap"
 >
   <DotNavigation client:only="react" />
 
@@ -26,27 +30,26 @@ const projects = allProjects.filter(p => p.data.locale === 'en');
   <section id="projects" class="min-h-full snap-start flex flex-col justify-center items-center px-4 sm:px-6 py-12 sm:py-20 bg-slate-100 dark:bg-gray-900" data-aos="fade-up">
     <h2 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-charcoal dark:text-white text-center">📌 Recent Projects</h2>
     <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 w-full max-w-4xl">
-      {projects.slice(0, 2).map(project => (
-        <li class="bg-white dark:bg-gray-800 shadow rounded-lg overflow-hidden transition hover:shadow-xl active:scale-[0.98]">
-          <a href={`/en/projects/${project.slug}`} class="block p-4 sm:p-6 space-y-2 sm:space-y-3 h-full">
-            <div class="flex items-start sm:items-center justify-between gap-2">
-              <h3 class="font-semibold text-base sm:text-lg text-charcoal dark:text-white group-hover:text-gold transition flex-1">
-                {project.data.title}
-              </h3>
-              {project.data.category && (
-                <span class={`text-xs font-medium px-2 py-1 rounded-full shrink-0 ${
-                  project.data.category === 'pro' ? 'bg-blue-600' :
-                  project.data.category === 'perso' ? 'bg-purple-600' :
-                  project.data.category === 'étude' ? 'bg-green-600' : ''
-                } text-white`}>
-                  {project.data.category}
-                </span>
-              )}
-            </div>
-            <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-3">{project.data.description}</p>
-          </a>
-        </li>
-      ))}
+      {projects.slice(0, 2).map(project => {
+        const category = getCategoryStyle(project.data.category, 'en');
+        return (
+          <li class="bg-white dark:bg-gray-800 shadow rounded-lg overflow-hidden transition hover:shadow-xl active:scale-[0.98]">
+            <a href={`/en/projects/${project.slug}`} class="block p-4 sm:p-6 space-y-2 sm:space-y-3 h-full">
+              <div class="flex items-start sm:items-center justify-between gap-2">
+                <h3 class="font-semibold text-base sm:text-lg text-charcoal dark:text-white group-hover:text-gold transition flex-1">
+                  {project.data.title}
+                </h3>
+                {category && (
+                  <span class={`text-xs font-medium px-2 py-1 rounded-full shrink-0 ${category.classes}`}>
+                    {category.label}
+                  </span>
+                )}
+              </div>
+              <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-3">{project.data.description}</p>
+            </a>
+          </li>
+        );
+      })}
     </ul>
   </section>
 
@@ -59,14 +62,10 @@ const projects = allProjects.filter(p => p.data.locale === 'en');
       {[{ name: 'Python', logo: '/icons/Python.svg' }, { name: 'SQL', logo: '/icons/SQL.svg' }, { name: 'Streamlit', logo: '/icons/Streamlit.svg' }, { name: 'API REST', logo: '/icons/Jira.svg' }, { name: 'MongoDB', logo: '/icons/MongoDB.svg' }, { name: 'Astro', logo: '/icons/Astro.svg' }]
       .map(skill => (
         <div class="flex flex-col items-center justify-center p-2 sm:p-4 gap-1 sm:gap-2 rounded-lg sm:rounded-xl bg-white/70 dark:bg-gray-700/70 shadow hover:shadow-md transition text-center sm:min-w-[120px]">
-          <img src={skill.logo} alt={skill.name} class="h-6 w-6 sm:h-8 sm:w-8 object-contain dark:invert dark:brightness-200" />
+          <img src={skill.logo} alt={skill.name} class="h-6 w-6 sm:h-8 sm:w-8 object-contain dark:invert dark:brightness-200" loading="lazy" />
           <span class="text-xs sm:text-sm font-semibold text-charcoal dark:text-gray-200">{skill.name}</span>
         </div>
       ))}
     </div>
   </section>
-</IndexLayout>
-
-
-
-
+</BaseLayout>

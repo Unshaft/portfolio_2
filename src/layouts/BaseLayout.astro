@@ -10,6 +10,7 @@ interface Props {
   lang?: 'fr' | 'en';
   altLangHref?: string;
   ogImage?: string;
+  scrollMode?: 'normal' | 'snap';
 }
 
 const {
@@ -17,11 +18,14 @@ const {
   description = "Portfolio de Killian Perzo - Data Analyst & Développeur Full-Stack. Découvrez mes projets en Python, Machine Learning, APIs et développement web.",
   lang = "fr",
   altLangHref,
-  ogImage = "/img/og-image.png"
+  ogImage = "/img/og-image.png",
+  scrollMode = "normal"
 } = Astro.props;
 
 const siteUrl = "https://killianperzo.dev";
 const canonicalURL = new URL(Astro.url.pathname, siteUrl);
+
+const isSnap = scrollMode === 'snap';
 ---
 
 <html lang={lang} class="scroll-smooth">
@@ -73,16 +77,28 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl);
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-</head>
-  
-  <body class="bg-slate dark:bg-gray-900 text-charcoal dark:text-gray-100 flex flex-col min-h-screen transition-colors duration-300">
+  </head>
+
+  <body class:list={[
+    "bg-slate dark:bg-gray-900 text-charcoal dark:text-gray-100 flex flex-col transition-colors duration-300",
+    isSnap ? "h-screen overflow-hidden" : "min-h-screen"
+  ]}>
     <Navbar lang={lang} altLangHref={altLangHref} />
 
-    <main class="flex-1 w-full max-w-6xl mx-auto px-4 py-12">
-      <slot />
-    </main>
+    {isSnap ? (
+      <main class="flex-1 flex justify-center items-center overflow-hidden">
+        <div id="scroll-frame" class="w-full max-w-5xl h-full overflow-y-auto snap-y snap-mandatory scroll-smooth scrollbar-hide rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-lg transition-colors duration-300">
+          <slot />
+        </div>
+      </main>
+    ) : (
+      <main class="flex-1 w-full max-w-6xl mx-auto px-4 py-12">
+        <slot />
+      </main>
+    )}
 
     <Footer />
+    <SpeedInsights />
 
     <script type="module">
       import Alpine from 'alpinejs';

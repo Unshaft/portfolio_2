@@ -90,11 +90,12 @@ const { lang = currentLang, altLangHref } = Astro.props;
   const closeIcon = document.getElementById('close-icon');
 
   burgerBtn?.addEventListener('click', () => {
-    const isOpen = !mobileMenu.classList.contains('hidden');
+    const isCurrentlyHidden = mobileMenu.classList.contains('hidden');
     mobileMenu.classList.toggle('hidden');
     burgerIcon.classList.toggle('hidden');
     closeIcon.classList.toggle('hidden');
-    burgerBtn.setAttribute('aria-expanded', !isOpen);
+    // aria-expanded doit être une string 'true' ou 'false'
+    burgerBtn.setAttribute('aria-expanded', isCurrentlyHidden ? 'true' : 'false');
   });
 
   // Fermer le menu quand on clique sur un lien
