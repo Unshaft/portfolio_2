@@ -13,8 +13,8 @@ const projects = allProjects
 <BaseLayout
   lang="fr"
   altLangHref="/en"
-  title="Killian Perzo - Data Analyst & Développeur Full-Stack"
-  description="Portfolio de Killian Perzo. Découvrez mes projets en Python, Machine Learning, APIs REST et développement web. Data Analyst passionné et créateur de DataBad."
+  title="Killian Perzo - Data Scientist | IA Agentique"
+  description="Portfolio de Killian Perzo, Data Scientist spécialisé en IA agentique. Découvrez mes projets en LangChain, LangGraph, agents autonomes et systèmes multi-agents. Créateur de DataSentinel AI et DataBad."
   scrollMode="snap"
 >
   <DotNavigation client:only="react" />
@@ -22,7 +22,7 @@ const projects = allProjects
   <!-- Section 1 : Welcome -->
   <section id="welcome" class="min-h-full snap-start flex flex-col justify-center items-center px-4 sm:px-6 py-12 sm:py-20 bg-slate-50 dark:bg-gray-800" data-aos="fade-up">
     <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-charcoal dark:text-white text-center leading-tight">Bienvenue sur mon portfolio 👋</h1>
-    <p class="text-base sm:text-lg text-center max-w-2xl text-gray-700 dark:text-gray-300 px-2">Je suis Killian, analyste passionné de data & créateur de <strong class="text-charcoal dark:text-gold">DataBad</strong>.</p>
+    <p class="text-base sm:text-lg text-center max-w-2xl text-gray-700 dark:text-gray-300 px-2">Je suis Killian, Data Scientist spécialisé en <strong class="text-charcoal dark:text-gold">IA agentique</strong> & créateur d'agents autonomes intelligents.</p>
     <a href="#projects" class="mt-6 sm:mt-8 bg-gold hover:bg-oldgold text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded text-sm sm:text-base transition-colors active:scale-95">🚀 Voir mes projets</a>
   </section>
 
@@ -59,7 +59,7 @@ const projects = allProjects
       <span class="text-pink-600 text-lg sm:text-xl">💼</span> Compétences clés
     </h2>
     <div class="grid grid-cols-3 sm:flex sm:flex-wrap justify-center gap-2 sm:gap-4 w-full max-w-lg sm:max-w-none">
-      {[{ name: 'Python', logo: '/icons/Python.svg' }, { name: 'SQL', logo: '/icons/SQL.svg' }, { name: 'Streamlit', logo: '/icons/Streamlit.svg' }, { name: 'API REST', logo: '/icons/Jira.svg' }, { name: 'MongoDB', logo: '/icons/MongoDB.svg' }, { name: 'Astro', logo: '/icons/Astro.svg' }]
+      {[{ name: 'Python', logo: '/icons/Python.svg' }, { name: 'LangChain', logo: '/icons/Python.svg' }, { name: 'LangGraph', logo: '/icons/Python.svg' }, { name: 'FastAPI', logo: '/icons/Jira.svg' }, { name: 'ChromaDB', logo: '/icons/MongoDB.svg' }, { name: 'Claude AI', logo: '/icons/Astro.svg' }]
       .map(skill => (
         <div class="flex flex-col items-center justify-center p-2 sm:p-4 gap-1 sm:gap-2 rounded-lg sm:rounded-xl bg-white/70 dark:bg-gray-700/70 shadow hover:shadow-md transition text-center sm:min-w-[120px]">
           <img src={skill.logo} alt={skill.name} class="h-6 w-6 sm:h-8 sm:w-8 object-contain dark:invert dark:brightness-200" loading="lazy" />

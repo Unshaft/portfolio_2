@@ -4,7 +4,7 @@
 
 ## Aperçu du projet
 
-Portfolio personnel bilingue (FR/EN) pour Killian Perzo, Data Analyst & Développeur Full-Stack.
+Portfolio personnel bilingue (FR/EN) pour Killian Perzo, Data Scientist spécialisé en IA agentique.
 
 **URL de production** : https://killianperzo.dev
 
