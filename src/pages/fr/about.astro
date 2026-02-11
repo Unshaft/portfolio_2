@@ -1,39 +1,51 @@
 ---
-// src/pages/about.astro
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
   lang="fr"
   altLangHref="/en/about"
-  title="À propos - Killian Perzo"
-  description="Découvrez mon parcours : Data Scientist spécialisé en IA agentique chez Median Technologies. Expert en systèmes multi-agents, LangChain, LangGraph. Créateur de DataSentinel AI et DataBad."
+  title="A propos - Killian Perzo"
+  description="Decouvrez mon parcours : Data Scientist specialise en IA agentique chez Median Technologies. Expert en systemes multi-agents, LangChain, LangGraph."
 >
   <section class="max-w-3xl mx-auto py-8 sm:py-16 px-4 sm:px-0">
-    <h1 class="text-2xl sm:text-4xl font-bold text-charcoal dark:text-white mb-4 sm:mb-6">À propos</h1>
+    <div class="mb-8 sm:mb-12">
+      <p class="font-body text-sm font-medium tracking-widest uppercase text-gold mb-3">A propos</p>
+      <h1 class="font-display text-3xl sm:text-5xl font-extrabold text-charcoal dark:text-white leading-tight">
+        Mon <span class="gold-accent">parcours</span>
+      </h1>
+    </div>
 
-    <p class="text-base sm:text-lg text-gray-800 dark:text-gray-200 leading-relaxed mb-4 sm:mb-6">
-      Salut, moi c'est <strong>Killian</strong> — Data Scientist passionné par l'<span class="text-gold font-semibold">IA agentique</span>, les <span class="text-gold font-semibold">systèmes multi-agents</span> et la <span class="text-gold font-semibold">création d'agents autonomes</span>.
-    </p>
+    <div class="space-y-5 sm:space-y-6">
+      <p class="font-body text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+        Salut, moi c'est <strong class="text-charcoal dark:text-white font-semibold">Killian</strong> — Data Scientist passionne par l'<span class="text-gold font-semibold">IA agentique</span>, les <span class="text-gold font-semibold">systemes multi-agents</span> et la <span class="text-gold font-semibold">creation d'agents autonomes</span>.
+      </p>
 
-    <p class="text-sm sm:text-base text-gray-700 dark:text-gray-300 mb-3 sm:mb-4">
-      Après un parcours en STAPS puis un BUT Science des Données, j'ai poursuivi avec un master en Data Analyse que je termine fin 2025. Je travaille actuellement chez <strong class="text-charcoal dark:text-white">Median Technologies</strong>, où j'ai développé des solutions d'automatisation intelligente et d'IA appliquée à l'imagerie médicale.
-    </p>
+      <p class="font-body text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
+        Apres un parcours en STAPS puis un BUT Science des Donnees, j'ai poursuivi avec un master en Data Analyse que je termine fin 2025. Je travaille actuellement chez <strong class="text-charcoal dark:text-white">Median Technologies</strong>, ou j'ai developpe des solutions d'automatisation intelligente et d'IA appliquee a l'imagerie medicale.
+      </p>
 
-    <p class="text-sm sm:text-base text-gray-700 dark:text-gray-300 mb-3 sm:mb-4">
-      Ma spécialité : concevoir des <strong class="text-charcoal dark:text-white">agents autonomes intelligents</strong> capables de raisonner, de collaborer et d'exécuter des tâches complexes. J'utilise des frameworks comme <strong class="text-charcoal dark:text-white">LangChain</strong>, <strong class="text-charcoal dark:text-white">LangGraph</strong> et des LLMs avancés (Claude, GPT) pour créer des systèmes RAG, des workflows multi-agents et des outils d'automatisation intelligente.
-    </p>
+      <div class="p-5 sm:p-6 rounded-2xl bg-white/60 dark:bg-gray-800/40 border border-gray-200/50 dark:border-gray-700/30 backdrop-blur-sm">
+        <p class="font-body text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
+          Ma specialite : concevoir des <strong class="text-charcoal dark:text-white">agents autonomes intelligents</strong> capables de raisonner, de collaborer et d'executer des taches complexes. J'utilise des frameworks comme <strong class="text-charcoal dark:text-white">LangChain</strong>, <strong class="text-charcoal dark:text-white">LangGraph</strong> et des LLMs avances (Claude, GPT) pour creer des systemes RAG, des workflows multi-agents et des outils d'automatisation intelligente.
+        </p>
+      </div>
 
-    <p class="text-sm sm:text-base text-gray-700 dark:text-gray-300 mb-3 sm:mb-4">
-      Côté projets perso, j'ai créé <strong class="text-charcoal dark:text-white">DataSentinel AI</strong> — un système de monitoring intelligent utilisant des agents autonomes pour analyser et surveiller des pipelines de données. Je développe aussi <strong class="text-charcoal dark:text-white">Data Quality Agent</strong>, un agent spécialisé dans l'analyse automatisée de la qualité des données avec génération de rapports intelligents.
-    </p>
+      <p class="font-body text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
+        Cote projets perso, j'ai cree <strong class="text-charcoal dark:text-white">DataSentinel AI</strong> — un systeme de monitoring intelligent utilisant des agents autonomes pour analyser et surveiller des pipelines de donnees. Je developpe aussi <strong class="text-charcoal dark:text-white">Data Quality Agent</strong>, un agent specialise dans l'analyse automatisee de la qualite des donnees avec generation de rapports intelligents.
+      </p>
 
-    <p class="text-sm sm:text-base text-gray-700 dark:text-gray-300 mb-6 sm:mb-8">
-      Mon objectif ? Construire des agents IA qui augmentent l'intelligence humaine et automatisent les tâches complexes. Je cherche des opportunités pour développer des systèmes d'IA agentique à fort impact, où l'autonomie des agents permet de résoudre des problèmes réels à grande échelle.
-    </p>
+      <p class="font-body text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
+        Mon objectif ? Construire des agents IA qui augmentent l'intelligence humaine et automatisent les taches complexes. Je cherche des opportunites pour developper des systemes d'IA agentique a fort impact, ou l'autonomie des agents permet de resoudre des problemes reels a grande echelle.
+      </p>
+    </div>
 
-    <a href="/fr/contact" class="inline-block w-full sm:w-auto text-center bg-gold text-white px-6 py-3 rounded-lg hover:bg-oldgold transition active:scale-95 font-medium">
-      Me contacter →
-    </a>
+    <div class="mt-10 sm:mt-12 flex flex-col sm:flex-row gap-4">
+      <a href="/fr/contact" class="btn-primary btn-icon text-center">
+        <span>Me contacter</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="/fr/cv" class="btn-secondary text-center">Voir mon CV</a>
+    </div>
   </section>
 </BaseLayout>

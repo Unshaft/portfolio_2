@@ -41,6 +41,9 @@
         "translationOf": {
           "type": "string"
         },
+        "order": {
+          "type": "number"
+        },
         "startDate": {
           "type": "string"
         },

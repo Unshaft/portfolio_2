@@ -8,28 +8,28 @@ const lang = 'en';
 const projects = (await getCollection('projects'))
   .filter((project) => project.data.locale === lang && !!project.slug)
   .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
-
-console.log(`📦 [${lang.toUpperCase()}] Projects shown on /${lang}/projects:`);
-projects.forEach((p) => {
-  console.log(`— ${p.data.title} → /${lang}/projects/${p.slug}`);
-});
-
-
-
 ---
 
 <BaseLayout
   lang="en"
   altLangHref="/fr/projects"
   title="Projects - Killian Perzo"
-  description="Explore my projects in Data Analysis, Machine Learning, APIs and web development. Budget Tracker, QueryBot API, DataBad and more."
+  description="Explore my projects in Data Analysis, Machine Learning, APIs and web development."
 >
-  <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-charcoal dark:text-white mb-6 sm:mb-8 px-2 sm:px-0">My Projects</h1>
+  <div class="mb-10 sm:mb-14 px-2 sm:px-0">
+    <p class="font-body text-sm font-medium tracking-widest uppercase text-gold mb-3">Portfolio</p>
+    <h1 class="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-charcoal dark:text-white leading-tight">
+      My <span class="gold-accent">projects</span>
+    </h1>
+    <p class="font-body text-gray-600 dark:text-gray-400 mt-3 max-w-2xl">
+      Autonomous agents, multi-agent systems, intelligent APIs and data-driven applications.
+    </p>
+  </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 px-2 sm:px-0">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8 px-2 sm:px-0">
     {projects.map((project) => (
       <a href={`/${lang}/projects/${project.slug}`} class="block group">
-        <ProjectCard project={project.data} />
+        <ProjectCard project={project.data} lang={lang} />
       </a>
     ))}
   </div>

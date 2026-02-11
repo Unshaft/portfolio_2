@@ -1,5 +1,4 @@
 ---
-// src/pages/about.astro
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
@@ -7,33 +6,46 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   lang="en"
   altLangHref="/fr/about"
   title="About - Killian Perzo"
-  description="Learn about my journey: Data Scientist specialized in Agentic AI at Median Technologies. Expert in multi-agent systems, LangChain, LangGraph. Creator of DataSentinel AI and DataBad."
+  description="Learn about my journey: Data Scientist specialized in Agentic AI at Median Technologies. Expert in multi-agent systems, LangChain, LangGraph."
 >
   <section class="max-w-3xl mx-auto py-8 sm:py-16 px-4 sm:px-0">
-    <h1 class="text-2xl sm:text-4xl font-bold text-charcoal dark:text-white mb-4 sm:mb-6">About</h1>
+    <div class="mb-8 sm:mb-12">
+      <p class="font-body text-sm font-medium tracking-widest uppercase text-gold mb-3">About</p>
+      <h1 class="font-display text-3xl sm:text-5xl font-extrabold text-charcoal dark:text-white leading-tight">
+        My <span class="gold-accent">journey</span>
+      </h1>
+    </div>
 
-    <p class="text-base sm:text-lg text-gray-800 dark:text-gray-200 leading-relaxed mb-4 sm:mb-6">
-      Hi, I'm <strong>Killian</strong> — Data Scientist passionate about <span class="text-gold font-semibold">Agentic AI</span>, <span class="text-gold font-semibold">multi-agent systems</span>, and <span class="text-gold font-semibold">building autonomous agents</span>.
-    </p>
+    <div class="space-y-5 sm:space-y-6">
+      <p class="font-body text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+        Hi, I'm <strong class="text-charcoal dark:text-white font-semibold">Killian</strong> — Data Scientist passionate about <span class="text-gold font-semibold">Agentic AI</span>, <span class="text-gold font-semibold">multi-agent systems</span>, and <span class="text-gold font-semibold">building autonomous agents</span>.
+      </p>
 
-    <p class="text-sm sm:text-base text-gray-700 dark:text-gray-300 mb-3 sm:mb-4">
-      After studying Sports Science (STAPS) and completing a Bachelor's in Data Science, I pursued a Master's in Data Analysis, which I will finish by the end of 2025. I currently work at <strong class="text-charcoal dark:text-white">Median Technologies</strong>, where I've developed intelligent automation solutions and AI applied to medical imaging.
-    </p>
+      <p class="font-body text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
+        After studying Sports Science (STAPS) and completing a Bachelor's in Data Science, I pursued a Master's in Data Analysis, which I will finish by the end of 2025. I currently work at <strong class="text-charcoal dark:text-white">Median Technologies</strong>, where I've developed intelligent automation solutions and AI applied to medical imaging.
+      </p>
 
-    <p class="text-sm sm:text-base text-gray-700 dark:text-gray-300 mb-3 sm:mb-4">
-      My specialty: designing <strong class="text-charcoal dark:text-white">intelligent autonomous agents</strong> capable of reasoning, collaborating, and executing complex tasks. I use frameworks like <strong class="text-charcoal dark:text-white">LangChain</strong>, <strong class="text-charcoal dark:text-white">LangGraph</strong>, and advanced LLMs (Claude, GPT) to build RAG systems, multi-agent workflows, and intelligent automation tools.
-    </p>
+      <div class="p-5 sm:p-6 rounded-2xl bg-white/60 dark:bg-gray-800/40 border border-gray-200/50 dark:border-gray-700/30 backdrop-blur-sm">
+        <p class="font-body text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
+          My specialty: designing <strong class="text-charcoal dark:text-white">intelligent autonomous agents</strong> capable of reasoning, collaborating, and executing complex tasks. I use frameworks like <strong class="text-charcoal dark:text-white">LangChain</strong>, <strong class="text-charcoal dark:text-white">LangGraph</strong>, and advanced LLMs (Claude, GPT) to build RAG systems, multi-agent workflows, and intelligent automation tools.
+        </p>
+      </div>
 
-    <p class="text-sm sm:text-base text-gray-700 dark:text-gray-300 mb-3 sm:mb-4">
-      On the personal side, I created <strong class="text-charcoal dark:text-white">DataSentinel AI</strong> — an intelligent monitoring system using autonomous agents to analyze and monitor data pipelines. I'm also developing <strong class="text-charcoal dark:text-white">Data Quality Agent</strong>, a specialized agent for automated data quality analysis with intelligent report generation.
-    </p>
+      <p class="font-body text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
+        On the personal side, I created <strong class="text-charcoal dark:text-white">DataSentinel AI</strong> — an intelligent monitoring system using autonomous agents to analyze and monitor data pipelines. I'm also developing <strong class="text-charcoal dark:text-white">Data Quality Agent</strong>, a specialized agent for automated data quality analysis with intelligent report generation.
+      </p>
 
-    <p class="text-sm sm:text-base text-gray-700 dark:text-gray-300 mb-6 sm:mb-8">
-      My goal? To build AI agents that augment human intelligence and automate complex tasks. I'm looking for opportunities to develop high-impact agentic AI systems, where agent autonomy enables solving real-world problems at scale.
-    </p>
+      <p class="font-body text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
+        My goal? To build AI agents that augment human intelligence and automate complex tasks. I'm looking for opportunities to develop high-impact agentic AI systems, where agent autonomy enables solving real-world problems at scale.
+      </p>
+    </div>
 
-    <a href="/en/contact" class="inline-block w-full sm:w-auto text-center bg-gold text-white px-6 py-3 rounded-lg hover:bg-oldgold transition active:scale-95 font-medium">
-      Contact me →
-    </a>
+    <div class="mt-10 sm:mt-12 flex flex-col sm:flex-row gap-4">
+      <a href="/en/contact" class="btn-primary btn-icon text-center">
+        <span>Contact me</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="/en/cv" class="btn-secondary text-center">View my resume</a>
+    </div>
   </section>
 </BaseLayout>

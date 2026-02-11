@@ -4,114 +4,144 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 const cvUrl = '/files/CV_PERZO_Killian_2025.pdf';
 ---
 
-<BaseLayout title="CV | Killian Perzo">
-  <section class="max-w-5xl mx-auto px-4 py-12 prose">
-    <h1 class="text-4xl mb-4 text-gold">Curriculum Vitae</h1>
+<BaseLayout lang="fr" altLangHref="/en/cv" title="CV | Killian Perzo">
+  <section class="max-w-5xl mx-auto px-4 py-8 sm:py-12">
+    <div class="mb-10 sm:mb-14">
+      <p class="font-body text-sm font-medium tracking-widest uppercase text-gold mb-3">Resume</p>
+      <h1 class="font-display text-3xl sm:text-5xl font-extrabold text-charcoal dark:text-white leading-tight">
+        Curriculum <span class="gold-accent">Vitae</span>
+      </h1>
+      <p class="font-body text-gray-600 dark:text-gray-400 mt-4 text-base sm:text-lg max-w-3xl leading-relaxed">
+        Data Scientist specialise en IA agentique chez Median Technologies, je finalise un Master of Science in Data Analytics a la DSTI.
+      </p>
+    </div>
 
-    <p class="mb-6 text-lg">
-      Data Scientist spécialisé en IA agentique chez Median Technologies, je finalise un Master of Science in Data Analytics à la DSTI.
-      Mon parcours mêle sciences du sport, ingénierie de la donnée et développement d'agents autonomes intelligents. Je recherche des opportunités pour développer des systèmes multi-agents et d'automatisation intelligente.
-    </p>
-
-    <!-- Expériences -->
-    <div class="grid sm:grid-cols-2 gap-10 mb-12">
+    <!-- Experience + Formation -->
+    <div class="grid sm:grid-cols-2 gap-8 sm:gap-12 mb-12 sm:mb-16">
       <div>
-        <h2 class="text-2xl text-oldgold mb-4">Expérience professionnelle</h2>
-        <ul class="space-y-4 text-sm">
-          <li>
-            <strong>Data Scientist – Median Technologies</strong><br />
-            <em>Alternance | Sep. 2024 – Déc. 2025</em><br />
-            IA agentique · Systèmes multi-agents · API JIRA automatisée · LangChain & LangGraph · Analyse de données DICOM · Modélisation ML · Collaboration Agile
+        <h2 class="font-display text-xl sm:text-2xl font-bold text-charcoal dark:text-white mb-6 flex items-center gap-3">
+          <span class="w-8 h-0.5 bg-gold rounded-full"></span>
+          Experience professionnelle
+        </h2>
+        <ul class="space-y-5">
+          <li class="p-4 rounded-xl bg-white/60 dark:bg-gray-800/40 border border-gray-200/50 dark:border-gray-700/30 backdrop-blur-sm">
+            <strong class="font-display font-bold text-charcoal dark:text-white">Data Scientist</strong>
+            <span class="font-body text-gold text-sm ml-1">Median Technologies</span>
+            <p class="font-body text-xs text-gray-500 dark:text-gray-500 mt-1">Alternance | Sep. 2024 - Dec. 2025</p>
+            <p class="font-body text-sm text-gray-600 dark:text-gray-400 mt-2">IA agentique, systemes multi-agents, API JIRA automatisee, LangChain & LangGraph, analyse DICOM, ML, Agile</p>
           </li>
-          <li>
-            <strong>Data Analyst – Monext</strong><br />
-            <em>Janv. 2022 – Août 2024</em><br />
-            Dashboards client · KPI · Formateur AWS Quicksight
+          <li class="p-4 rounded-xl bg-white/60 dark:bg-gray-800/40 border border-gray-200/50 dark:border-gray-700/30 backdrop-blur-sm">
+            <strong class="font-display font-bold text-charcoal dark:text-white">Data Analyst</strong>
+            <span class="font-body text-gold text-sm ml-1">Monext</span>
+            <p class="font-body text-xs text-gray-500 dark:text-gray-500 mt-1">Jan. 2022 - Aout 2024</p>
+            <p class="font-body text-sm text-gray-600 dark:text-gray-400 mt-2">Dashboards client, KPI, Formateur AWS Quicksight</p>
           </li>
-          <li>
-            <strong>Animateur TMS – Moovency</strong><br />
-            Ateliers prévention TMS (Lidl France) · Intervention terrain
-          </li>
-          <li>
-            <strong>Équipier – McDonald’s</strong><br />
-            Gestion du stress · Travail d'équipe · Relationnel client
-          </li>
-          <li>
-            <strong>Animateur – Wakanga</strong><br />
-            Communication, transmission & créativité en colonie
+          <li class="p-4 rounded-xl bg-white/60 dark:bg-gray-800/40 border border-gray-200/50 dark:border-gray-700/30 backdrop-blur-sm">
+            <strong class="font-display font-bold text-charcoal dark:text-white">Animateur TMS</strong>
+            <span class="font-body text-gold text-sm ml-1">Moovency</span>
+            <p class="font-body text-sm text-gray-600 dark:text-gray-400 mt-2">Ateliers prevention TMS (Lidl France), intervention terrain</p>
           </li>
         </ul>
       </div>
 
-      <!-- Formation -->
       <div>
-        <h2 class="text-2xl text-oldgold mb-4">Formation</h2>
-        <ul class="space-y-4 text-sm">
-          <li>
-            <strong>DSTI</strong> — MSc in Data Analytics<br />
-            <em>2024 – en cours</em><br />
-            Data management · Visualisation · Machine learning appliqué
+        <h2 class="font-display text-xl sm:text-2xl font-bold text-charcoal dark:text-white mb-6 flex items-center gap-3">
+          <span class="w-8 h-0.5 bg-gold rounded-full"></span>
+          Formation
+        </h2>
+        <ul class="space-y-5">
+          <li class="p-4 rounded-xl bg-white/60 dark:bg-gray-800/40 border border-gray-200/50 dark:border-gray-700/30 backdrop-blur-sm">
+            <strong class="font-display font-bold text-charcoal dark:text-white">DSTI</strong>
+            <span class="font-body text-gray-500 dark:text-gray-400 text-sm ml-1">MSc in Data Analytics</span>
+            <p class="font-body text-xs text-gray-500 dark:text-gray-500 mt-1">2024 - en cours</p>
+            <p class="font-body text-sm text-gray-600 dark:text-gray-400 mt-2">Data management, visualisation, ML applique</p>
           </li>
-          <li>
-            <strong>IUT Vannes</strong> — BUT Sciences des données<br />
-            <em>2022 – 2024</em><br />
-            Statistique · Modélisation · NoSQL · Intelligence Artificielle
+          <li class="p-4 rounded-xl bg-white/60 dark:bg-gray-800/40 border border-gray-200/50 dark:border-gray-700/30 backdrop-blur-sm">
+            <strong class="font-display font-bold text-charcoal dark:text-white">IUT Vannes</strong>
+            <span class="font-body text-gray-500 dark:text-gray-400 text-sm ml-1">BUT Sciences des donnees</span>
+            <p class="font-body text-xs text-gray-500 dark:text-gray-500 mt-1">2022 - 2024</p>
+            <p class="font-body text-sm text-gray-600 dark:text-gray-400 mt-2">Statistique, modelisation, NoSQL, IA</p>
           </li>
-          <li>
-            <strong>Université Rennes 2</strong> — Licence STAPS<br />
-            <em>2018 – 2022</em><br />
-            Ergonomie du sport · Analyse motrice
-          </li>
-          <li>
-            <strong>Lycée Frédéric Ozanam</strong> — Bac S SI<br />
-            <em>2015 – 2018</em><br />
-            Option Informatique · Erasmus Cesson-Sévigné
+          <li class="p-4 rounded-xl bg-white/60 dark:bg-gray-800/40 border border-gray-200/50 dark:border-gray-700/30 backdrop-blur-sm">
+            <strong class="font-display font-bold text-charcoal dark:text-white">Universite Rennes 2</strong>
+            <span class="font-body text-gray-500 dark:text-gray-400 text-sm ml-1">Licence STAPS</span>
+            <p class="font-body text-xs text-gray-500 dark:text-gray-500 mt-1">2018 - 2022</p>
+            <p class="font-body text-sm text-gray-600 dark:text-gray-400 mt-2">Ergonomie du sport, analyse motrice</p>
           </li>
         </ul>
       </div>
     </div>
 
-    <!-- Compétences -->
-    <div class="grid sm:grid-cols-2 gap-10 mb-12">
+    <!-- Competences -->
+    <div class="grid sm:grid-cols-2 gap-8 sm:gap-12 mb-12 sm:mb-16">
       <div>
-        <h2 class="text-2xl text-oldgold mb-4">Compétences techniques</h2>
-        <ul class="columns-2 text-sm marker:text-gold">
-          <li>Python</li><li>LangChain</li><li>LangGraph</li><li>Claude AI</li>
-          <li>FastAPI</li><li>ChromaDB</li><li>RAG Systems</li><li>Scikit-learn</li>
-          <li>SQL</li><li>MongoDB</li><li>Git</li><li>Docker</li>
-          <li>Streamlit</li><li>Power BI</li><li>AWS Quicksight</li><li>Pandas</li>
-        </ul>
+        <h2 class="font-display text-xl sm:text-2xl font-bold text-charcoal dark:text-white mb-6 flex items-center gap-3">
+          <span class="w-8 h-0.5 bg-gold rounded-full"></span>
+          Competences techniques
+        </h2>
+        <div class="flex flex-wrap gap-2">
+          {['Python', 'LangChain', 'LangGraph', 'Claude AI', 'FastAPI', 'ChromaDB', 'RAG Systems', 'Scikit-learn', 'SQL', 'MongoDB', 'Git', 'Docker', 'Streamlit', 'Power BI', 'AWS Quicksight', 'Pandas'].map(skill => (
+            <span class="bg-white/60 dark:bg-gray-800/40 border border-gray-200/50 dark:border-gray-700/30 text-charcoal dark:text-gray-300 text-sm font-body font-medium px-3 py-1.5 rounded-full">
+              {skill}
+            </span>
+          ))}
+        </div>
       </div>
       <div>
-        <h2 class="text-2xl text-oldgold mb-4">Langues & Certifications</h2>
-        <ul class="text-sm list-disc list-inside marker:text-gold">
-          <li>Anglais : B2 oral, C1 écrit – Italien : A2</li>
-          <li>Neo4j Certified</li>
-          <li>SAS Visual Business Analytics Specialist</li>
-          <li>Power BI – Microsoft Office (certifications à venir)</li>
+        <h2 class="font-display text-xl sm:text-2xl font-bold text-charcoal dark:text-white mb-6 flex items-center gap-3">
+          <span class="w-8 h-0.5 bg-gold rounded-full"></span>
+          Langues & Certifications
+        </h2>
+        <ul class="space-y-3 font-body text-sm text-gray-600 dark:text-gray-400">
+          <li class="flex items-start gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-gold mt-1.5 shrink-0"></span>
+            Anglais : B2 oral, C1 ecrit - Italien : A2
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-gold mt-1.5 shrink-0"></span>
+            Neo4j Certified
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-gold mt-1.5 shrink-0"></span>
+            SAS Visual Business Analytics Specialist
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-gold mt-1.5 shrink-0"></span>
+            Power BI - Microsoft Office (certifications a venir)
+          </li>
         </ul>
       </div>
     </div>
 
-    <!-- Projets personnels -->
-    <div class="mb-12">
-      <h2 class="text-2xl text-oldgold mb-4">Projets personnels</h2>
-      <ul class="text-sm list-disc list-inside marker:text-gold">
-        <li><strong>DataSentinel AI</strong> — Système de monitoring intelligent utilisant des agents autonomes (LangChain, Claude) pour analyser et surveiller des pipelines de données avec alertes automatisées et analyse prédictive.</li>
-        <li><strong>Data Quality Agent</strong> — Agent spécialisé en analyse automatisée de la qualité des données : détection d'anomalies, validation de schémas, génération de rapports intelligents via LangGraph et RAG.</li>
-        <li><strong>QueryBot API</strong> — API FastAPI pour la création automatisée de tickets JIRA chez Median Technologies : gestion OAuth, logs détaillés, déploiement multi-environnements.</li>
+    <!-- Projets perso -->
+    <div class="mb-12 sm:mb-16">
+      <h2 class="font-display text-xl sm:text-2xl font-bold text-charcoal dark:text-white mb-6 flex items-center gap-3">
+        <span class="w-8 h-0.5 bg-gold rounded-full"></span>
+        Projets personnels
+      </h2>
+      <ul class="space-y-3 font-body text-sm text-gray-600 dark:text-gray-400">
+        <li class="flex items-start gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-gold mt-1.5 shrink-0"></span>
+          <span><strong class="text-charcoal dark:text-white">DataSentinel AI</strong> — Systeme de monitoring intelligent utilisant des agents autonomes (LangChain, Claude) pour analyser et surveiller des pipelines de donnees.</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-gold mt-1.5 shrink-0"></span>
+          <span><strong class="text-charcoal dark:text-white">Data Quality Agent</strong> — Agent specialise en analyse automatisee de la qualite des donnees : detection d'anomalies, validation de schemas, generation de rapports via LangGraph et RAG.</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-gold mt-1.5 shrink-0"></span>
+          <span><strong class="text-charcoal dark:text-white">QueryBot API</strong> — API FastAPI pour la creation automatisee de tickets JIRA : gestion OAuth, logs detailles, deploiement multi-environnements.</span>
+        </li>
       </ul>
     </div>
 
-    <!-- Boutons -->
-    <div class="mb-4 flex flex-wrap gap-4 items-center">
-      <a href={cvUrl} download class="btn-primary">
-        Télécharger le CV (PDF)
+    <!-- Actions -->
+    <div class="flex flex-wrap gap-4 items-center">
+      <a href={cvUrl} download class="btn-primary btn-icon">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Telecharger le CV (PDF)</span>
       </a>
-      <a href="mailto:killian.perzo@gmail.com" class="hover:underline">killian.perzo@gmail.com</a>
-      <a href="https://www.linkedin.com/in/killian-perzo-24085417a" class="hover:underline" target="_blank">
-        LinkedIn
-      </a>
+      <a href="mailto:killian.perzo@gmail.com" class="font-body text-gold hover:text-oldgold transition-colors">killian.perzo@gmail.com</a>
     </div>
   </section>
 </BaseLayout>

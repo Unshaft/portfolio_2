@@ -14,56 +14,99 @@ const projects = allProjects
   lang="en"
   altLangHref="/fr"
   title="Killian Perzo - Data Scientist | Agentic AI"
-  description="Killian Perzo's Portfolio. Data Scientist specialized in Agentic AI. Discover my projects in LangChain, LangGraph, autonomous agents and multi-agent systems. Creator of DataSentinel AI and DataBad."
+  description="Killian Perzo's Portfolio. Data Scientist specialized in Agentic AI. Discover my projects in LangChain, LangGraph, autonomous agents and multi-agent systems."
   scrollMode="snap"
 >
   <DotNavigation client:only="react" />
 
-  <!-- Section 1 : Welcome -->
-  <section id="welcome" class="min-h-full snap-start flex flex-col justify-center items-center px-4 sm:px-6 py-12 sm:py-20 bg-slate-50 dark:bg-gray-800" data-aos="fade-up">
-    <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-charcoal dark:text-white text-center leading-tight">Welcome to my portfolio 👋</h1>
-    <p class="text-base sm:text-lg text-center max-w-2xl text-gray-700 dark:text-gray-300 px-2">I'm Killian, Data Scientist specialized in <strong class="text-charcoal dark:text-gold">Agentic AI</strong> & creator of intelligent autonomous agents.</p>
-    <a href="#projects" class="mt-6 sm:mt-8 bg-gold hover:bg-oldgold text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded text-sm sm:text-base transition-colors active:scale-95">🚀 View my projects</a>
+  <!-- Section 1 : Hero -->
+  <section id="welcome" class="min-h-full snap-start flex flex-col justify-center items-center px-6 sm:px-8 py-16 sm:py-24 relative overflow-hidden">
+    <!-- Decorative gradient orbs -->
+    <div class="absolute top-1/4 -left-32 w-64 h-64 bg-gold/10 rounded-full blur-3xl animate-glow-pulse"></div>
+    <div class="absolute bottom-1/4 -right-32 w-80 h-80 bg-charcoal/10 dark:bg-gold/5 rounded-full blur-3xl animate-glow-pulse" style="animation-delay: 1.5s;"></div>
+
+    <div class="relative z-10 text-center max-w-3xl">
+      <div class="opacity-0 animate-slide-up">
+        <p class="font-body text-sm sm:text-base font-medium tracking-widest uppercase text-gold mb-4 sm:mb-6">Data Scientist & Agentic AI</p>
+      </div>
+
+      <h1 class="opacity-0 animate-slide-up-delay-1 font-display text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 sm:mb-8 text-charcoal dark:text-white leading-[1.1] tracking-tight">
+        Hi, I'm <span class="gold-accent">Killian</span>
+      </h1>
+
+      <p class="opacity-0 animate-slide-up-delay-2 font-body text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed mb-8 sm:mb-10">
+        I build <strong class="text-charcoal dark:text-white font-semibold">intelligent autonomous agents</strong> and multi-agent systems that turn data into decisions.
+      </p>
+
+      <div class="opacity-0 animate-slide-up-delay-3 flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="#projects" class="btn-primary btn-icon">
+          <span>View my projects</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 14l-7 7m0 0l-7-7m7 7V3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="/en/about" class="btn-secondary">Learn more</a>
+      </div>
+    </div>
   </section>
 
   <!-- Section 2 : Projects -->
-  <section id="projects" class="min-h-full snap-start flex flex-col justify-center items-center px-4 sm:px-6 py-12 sm:py-20 bg-slate-100 dark:bg-gray-900" data-aos="fade-up">
-    <h2 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-charcoal dark:text-white text-center">📌 Recent Projects</h2>
-    <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 w-full max-w-4xl">
+  <section id="projects" class="min-h-full snap-start flex flex-col justify-center items-center px-6 sm:px-8 py-16 sm:py-24 relative">
+    <div class="text-center mb-8 sm:mb-12">
+      <p class="font-body text-sm font-medium tracking-widest uppercase text-gold mb-2">Portfolio</p>
+      <h2 class="section-title text-3xl sm:text-4xl">Recent Projects</h2>
+    </div>
+
+    <ul class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8 w-full max-w-4xl">
       {projects.slice(0, 2).map(project => {
         const category = getCategoryStyle(project.data.category, 'en');
         return (
-          <li class="bg-white dark:bg-gray-800 shadow rounded-lg overflow-hidden transition hover:shadow-xl active:scale-[0.98]">
-            <a href={`/en/projects/${project.slug}`} class="block p-4 sm:p-6 space-y-2 sm:space-y-3 h-full">
-              <div class="flex items-start sm:items-center justify-between gap-2">
-                <h3 class="font-semibold text-base sm:text-lg text-charcoal dark:text-white group-hover:text-gold transition flex-1">
+          <li class="group">
+            <a href={`/en/projects/${project.slug}`} class="block h-full p-5 sm:p-7 rounded-2xl bg-white/60 dark:bg-gray-800/40 border border-gray-200/50 dark:border-gray-700/30 backdrop-blur-sm card-hover gold-border-glow">
+              <div class="flex items-start justify-between gap-3 mb-3">
+                <h3 class="font-display font-bold text-lg sm:text-xl text-charcoal dark:text-white group-hover:text-gold transition-colors duration-300">
                   {project.data.title}
                 </h3>
                 {category && (
-                  <span class={`text-xs font-medium px-2 py-1 rounded-full shrink-0 ${category.classes}`}>
+                  <span class={`text-xs font-semibold px-2.5 py-1 rounded-full shrink-0 ${category.classes}`}>
                     {category.label}
                   </span>
                 )}
               </div>
-              <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-3">{project.data.description}</p>
+              <p class="font-body text-sm text-gray-600 dark:text-gray-400 line-clamp-3 leading-relaxed mb-4">{project.data.description}</p>
+              <div class="flex items-center gap-2 text-sm font-body font-medium text-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span>View project</span>
+                <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
             </a>
           </li>
         );
       })}
     </ul>
+
+    <a href="/en/projects" class="mt-8 sm:mt-10 font-body font-medium text-gold hover:text-oldgold transition-colors flex items-center gap-2">
+      All projects
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
   </section>
 
   <!-- Section 3 : Skills -->
-  <section id="skills" class="min-h-full snap-start flex flex-col justify-center items-center px-4 sm:px-6 py-12 sm:py-20 bg-slate-50 dark:bg-gray-800" data-aos="fade-up">
-    <h2 class="text-xl sm:text-2xl font-semibold text-charcoal dark:text-white mb-4 sm:mb-6 flex items-center gap-2">
-      <span class="text-pink-600 text-lg sm:text-xl">💼</span> Technical Skills
-    </h2>
-    <div class="grid grid-cols-3 sm:flex sm:flex-wrap justify-center gap-2 sm:gap-4 w-full max-w-lg sm:max-w-none">
-      {[{ name: 'Python', logo: '/icons/Python.svg' }, { name: 'LangChain', logo: '/icons/Python.svg' }, { name: 'LangGraph', logo: '/icons/Python.svg' }, { name: 'FastAPI', logo: '/icons/Jira.svg' }, { name: 'ChromaDB', logo: '/icons/MongoDB.svg' }, { name: 'Claude AI', logo: '/icons/Astro.svg' }]
-      .map(skill => (
-        <div class="flex flex-col items-center justify-center p-2 sm:p-4 gap-1 sm:gap-2 rounded-lg sm:rounded-xl bg-white/70 dark:bg-gray-700/70 shadow hover:shadow-md transition text-center sm:min-w-[120px]">
-          <img src={skill.logo} alt={skill.name} class="h-6 w-6 sm:h-8 sm:w-8 object-contain dark:invert dark:brightness-200" loading="lazy" />
-          <span class="text-xs sm:text-sm font-semibold text-charcoal dark:text-gray-200">{skill.name}</span>
+  <section id="skills" class="min-h-full snap-start flex flex-col justify-center items-center px-6 sm:px-8 py-16 sm:py-24 relative">
+    <div class="text-center mb-8 sm:mb-12">
+      <p class="font-body text-sm font-medium tracking-widest uppercase text-gold mb-2">Expertise</p>
+      <h2 class="section-title text-3xl sm:text-4xl">Core Skills</h2>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6 w-full max-w-2xl">
+      {[
+        { name: 'Python', desc: 'Primary language' },
+        { name: 'LangChain', desc: 'LLM orchestration' },
+        { name: 'LangGraph', desc: 'Multi-step agents' },
+        { name: 'FastAPI', desc: 'High-perf APIs' },
+        { name: 'ChromaDB', desc: 'Vector database' },
+        { name: 'Claude AI', desc: 'Advanced LLM' },
+      ].map((skill) => (
+        <div class="group p-4 sm:p-5 rounded-2xl bg-white/60 dark:bg-gray-800/40 border border-gray-200/50 dark:border-gray-700/30 backdrop-blur-sm card-hover text-center">
+          <p class="font-display font-bold text-base sm:text-lg text-charcoal dark:text-white group-hover:text-gold transition-colors">{skill.name}</p>
+          <p class="font-body text-xs sm:text-sm text-gray-500 dark:text-gray-500 mt-1">{skill.desc}</p>
         </div>
       ))}
     </div>
