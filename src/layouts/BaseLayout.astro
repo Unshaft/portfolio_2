@@ -1,6 +1,7 @@
 ---
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
+import TerminalEasterEgg from "../components/TerminalEasterEgg.astro";
 import '../styles/tailwind.css';
 import SpeedInsights from "../components/SpeedInsights.astro";
 
@@ -18,7 +19,7 @@ const {
   description = "Portfolio de Killian Perzo - Data Scientist spécialisé en IA Agentique. Découvrez mes projets en LangChain, LangGraph, systèmes multi-agents et automatisation intelligente.",
   lang = "fr",
   altLangHref,
-  ogImage = "/img/og-image.png",
+  ogImage = "/img/og-image.svg",
   scrollMode = "normal"
 } = Astro.props;
 
@@ -99,9 +100,10 @@ const isSnap = scrollMode === 'snap';
     )}
 
     <Footer />
+    <TerminalEasterEgg />
     <SpeedInsights />
 
-    <script type="module">
+    <script>
       import Alpine from 'alpinejs';
       window.Alpine = Alpine;
       Alpine.start();

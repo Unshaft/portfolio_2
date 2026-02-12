@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const sections = ['welcome', 'projects', 'skills'];
+const sections = ['welcome', 'projects', 'metrics', 'skills'];
 
 export default function DotNavigation() {
   const [activeSection, setActiveSection] = useState('welcome');
