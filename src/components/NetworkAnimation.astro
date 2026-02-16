@@ -85,9 +85,15 @@
       }
     }
 
-    function animate() {
-      update();
-      draw();
+    let lastTime = 0;
+    const FRAME_INTERVAL = 33; // ~30fps
+
+    function animate(timestamp: number) {
+      if (timestamp - lastTime >= FRAME_INTERVAL) {
+        update();
+        draw();
+        lastTime = timestamp;
+      }
       animationId = requestAnimationFrame(animate);
     }
 
@@ -98,7 +104,7 @@
     initNodes();
 
     if (!prefersReduced) {
-      animate();
+      animationId = requestAnimationFrame(animate);
     } else {
       draw(); // Just draw static frame
     }
@@ -113,7 +119,8 @@
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting && !prefersReduced) {
-          animate();
+          cancelAnimationFrame(animationId); // Guard: cancel any existing loop
+          animationId = requestAnimationFrame(animate);
         } else {
           cancelAnimationFrame(animationId);
         }

@@ -18,7 +18,7 @@ const navLinks = [
 const { lang = currentLang, altLangHref } = Astro.props;
 ---
 
-<nav class="w-full bg-white/80 dark:bg-midnight/80 backdrop-blur-xl border-b border-gray-200/50 dark:border-gray-700/30 px-4 sm:px-6 py-3 sm:py-4 transition-all duration-300 sticky top-0 z-50">
+<nav class="w-full bg-white/80 dark:bg-midnight/80 backdrop-blur-xl border-b border-gray-200/50 dark:border-gray-700/30 px-4 sm:px-6 py-3 sm:py-4 transition-all duration-300 sticky top-0 z-50" aria-label={currentLang === 'fr' ? 'Navigation principale' : 'Main navigation'}>
   <div class="max-w-7xl mx-auto flex items-center justify-between">
     <!-- Logo -->
     <a href={`/${currentLang}/`} class="logo group text-lg sm:text-xl">
@@ -34,7 +34,7 @@ const { lang = currentLang, altLangHref } = Astro.props;
       <div class="w-px h-5 bg-gray-200 dark:bg-gray-700 mx-2"></div>
 
       <!-- Langue -->
-      <a href={altLangHref ?? `/${altLang}${pathname.replace(/^\/(fr|en)/, '')}`} class="lang-switch px-3 py-2 rounded-lg hover:bg-gray-100/50 dark:hover:bg-gray-800/50">
+      <a href={altLangHref ?? `/${altLang}${pathname.replace(/^\/(fr|en)/, '')}`} class="lang-switch px-3 py-2 rounded-lg hover:bg-gray-100/50 dark:hover:bg-gray-800/50" hreflang={altLang}>
         {altLang === 'en' ? 'EN' : 'FR'}
       </a>
 
@@ -47,9 +47,10 @@ const { lang = currentLang, altLangHref } = Astro.props;
       <ThemeToggle />
       <button
         id="burger-btn"
-        class="flex items-center justify-center w-10 h-10 text-gray-600 dark:text-gray-300 focus:outline-none rounded-lg hover:bg-gray-100/50 dark:hover:bg-gray-800/50 transition-colors"
+        class="flex items-center justify-center w-10 h-10 text-gray-600 dark:text-gray-300 rounded-lg hover:bg-gray-100/50 dark:hover:bg-gray-800/50 focus-visible:ring-2 focus-visible:ring-gold focus-visible:outline-none transition-colors cursor-pointer"
         aria-label="Menu"
         aria-expanded="false"
+        aria-controls="mobile-menu"
       >
         <svg id="burger-icon" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2"
           viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
@@ -64,7 +65,7 @@ const { lang = currentLang, altLangHref } = Astro.props;
   </div>
 
   <!-- Mobile menu -->
-  <div id="mobile-menu" class="md:hidden hidden mt-4 pb-4 border-t border-gray-200/50 dark:border-gray-700/30 pt-4">
+  <div id="mobile-menu" class="md:hidden hidden mt-4 pb-4 border-t border-gray-200/50 dark:border-gray-700/30 pt-4" role="navigation" aria-label={currentLang === 'fr' ? 'Menu mobile' : 'Mobile menu'}>
     <div class="flex flex-col space-y-1">
       {navLinks.map(link => (
         <a

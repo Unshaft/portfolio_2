@@ -76,7 +76,7 @@ const nextProject = currentIndex < sameLangProjects.length - 1 ? sameLangProject
     <!-- Image -->
     {image && (
       <div class="relative overflow-hidden rounded-2xl mb-8 sm:mb-10">
-        <img src={image} alt={title} loading="lazy" decoding="async" class="w-full object-cover" />
+        <img src={image} alt={`Screenshot du projet ${title}`} loading="lazy" decoding="async" class="w-full aspect-video object-cover" />
       </div>
     )}
 
@@ -112,7 +112,7 @@ const nextProject = currentIndex < sameLangProjects.length - 1 ? sameLangProject
     </div>
 
     <!-- Prev/Next Navigation -->
-    <nav class="mt-12 sm:mt-16 grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <nav class="mt-12 sm:mt-16 grid grid-cols-1 sm:grid-cols-2 gap-4" aria-label={lang === 'fr' ? 'Navigation entre projets' : 'Project navigation'}>
       {prevProject ? (
         <a href={`/${lang}/projects/${prevProject.slug}`} class="group p-5 rounded-2xl bg-white/60 dark:bg-gray-800/40 border border-gray-200/50 dark:border-gray-700/30 backdrop-blur-sm card-hover">
           <p class="font-body text-xs font-medium text-gray-500 dark:text-gray-500 uppercase tracking-wider mb-1">{lang === 'fr' ? 'Precedent' : 'Previous'}</p>

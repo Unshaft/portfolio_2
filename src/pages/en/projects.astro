@@ -27,32 +27,36 @@ const projects = (await getCollection('projects'))
       </p>
 
       <!-- Category Filters -->
-      <div class="flex flex-wrap gap-2 mt-6">
+      <div class="flex flex-wrap gap-2 mt-6" role="group" aria-label="Filter by category">
         <button
           @click="filter = 'all'"
           :class="filter === 'all' ? 'bg-charcoal dark:bg-white text-white dark:text-midnight' : 'bg-white/60 dark:bg-gray-800/40 text-gray-600 dark:text-gray-400 border border-gray-200/50 dark:border-gray-700/30'"
-          class="px-4 py-1.5 rounded-full text-sm font-body font-medium transition-all duration-300 hover:scale-105 cursor-pointer"
+          :aria-pressed="(filter === 'all').toString()"
+          class="px-4 py-1.5 rounded-full text-sm font-body font-medium transition-all duration-300 hover:scale-105 cursor-pointer focus-visible:ring-2 focus-visible:ring-gold focus-visible:outline-none"
         >
           All
         </button>
         <button
           @click="filter = 'perso'"
           :class="filter === 'perso' ? 'bg-emerald-600 text-white' : 'bg-white/60 dark:bg-gray-800/40 text-gray-600 dark:text-gray-400 border border-gray-200/50 dark:border-gray-700/30'"
-          class="px-4 py-1.5 rounded-full text-sm font-body font-medium transition-all duration-300 hover:scale-105 cursor-pointer"
+          :aria-pressed="(filter === 'perso').toString()"
+          class="px-4 py-1.5 rounded-full text-sm font-body font-medium transition-all duration-300 hover:scale-105 cursor-pointer focus-visible:ring-2 focus-visible:ring-gold focus-visible:outline-none"
         >
           Personal
         </button>
         <button
           @click="filter = 'pro'"
           :class="filter === 'pro' ? 'bg-blue-600 text-white' : 'bg-white/60 dark:bg-gray-800/40 text-gray-600 dark:text-gray-400 border border-gray-200/50 dark:border-gray-700/30'"
-          class="px-4 py-1.5 rounded-full text-sm font-body font-medium transition-all duration-300 hover:scale-105 cursor-pointer"
+          :aria-pressed="(filter === 'pro').toString()"
+          class="px-4 py-1.5 rounded-full text-sm font-body font-medium transition-all duration-300 hover:scale-105 cursor-pointer focus-visible:ring-2 focus-visible:ring-gold focus-visible:outline-none"
         >
           Pro
         </button>
         <button
           @click="filter = 'study'"
           :class="filter === 'study' ? 'bg-purple-600 text-white' : 'bg-white/60 dark:bg-gray-800/40 text-gray-600 dark:text-gray-400 border border-gray-200/50 dark:border-gray-700/30'"
-          class="px-4 py-1.5 rounded-full text-sm font-body font-medium transition-all duration-300 hover:scale-105 cursor-pointer"
+          :aria-pressed="(filter === 'study').toString()"
+          class="px-4 py-1.5 rounded-full text-sm font-body font-medium transition-all duration-300 hover:scale-105 cursor-pointer focus-visible:ring-2 focus-visible:ring-gold focus-visible:outline-none"
         >
           Study
         </button>
